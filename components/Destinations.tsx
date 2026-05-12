@@ -94,8 +94,7 @@ const destinations = [
     duration: "2h45 de Nice",
     description:
       "Cinq villages suspendus entre falaises et Méditerranée. Maisons multicolores, sentiers côtiers et gastronomie ligure incontournable.",
-    image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=85",
+    image: "/images/cinque-terre.jpg",
     from: "Sur demande",
     highlight: null,
   },
@@ -105,8 +104,7 @@ const destinations = [
     duration: "4h30 de Nice",
     description:
       "La station de ski la plus prestigieuse des Alpes françaises. Pistes enneigées, chalets de luxe et art de vivre alpin.",
-    image:
-      "https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=900&q=85",
+    image: "/images/courchevel.jpg",
     from: "Sur demande",
     highlight: null,
   },
@@ -116,8 +114,7 @@ const destinations = [
     duration: "5h00 de Nice",
     description:
       "La cité internationale par excellence. Lac Léman, vieille ville, montres de luxe et gastronomie franco-suisse d'exception.",
-    image:
-      "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=900&q=85",
+    image: "/images/geneve.jpg",
     from: "Sur demande",
     highlight: null,
   },

@@ -20,15 +20,15 @@ const international = [
 
 const excursions = [
   {
-    name: "Monaco & Monte-Carlo",
-    duration: "Demi-journée (4h)",
-    price: "390€",
-    includes: ["Casino, Palais du Prince", "Musée Océanographique", "Port Hercule", "Arrêts photos"],
+    name: "Monaco, Monte-Carlo & Eze",
+    duration: "Demi-journée (4–5h)",
+    price: "500€",
+    includes: ["Casino, Palais du Prince", "Musée Océanographique", "Port Hercule", "Village perché d'Eze"],
   },
   {
     name: "Excursion Complète Riviera",
     duration: "Journée (8h)",
-    price: "730€",
+    price: "900€",
     includes: ["Monaco + Eze + Nice", "Antibes + Cap d'Antibes", "Déjeuner inclus (option)", "Itinéraire personnalisé"],
     popular: true,
   },
@@ -41,7 +41,7 @@ const excursions = [
   {
     name: "Gorges du Verdon",
     duration: "Journée (9h)",
-    price: "770€",
+    price: "900€",
     includes: ["Moustiers-Sainte-Marie", "Lac de Sainte-Croix", "Balcon du Verdon", "Point Sublime"],
   },
 ];
