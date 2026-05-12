@@ -7,8 +7,8 @@ const vehicles = [
   {
     name: "Tesla Model 3",
     category: "Éco · Électrique · 1–3 passagers",
-    image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=85",
-    isLocal: false,
+    image: "/images/tesla-model3.png",
+    isLocal: true,
     description:
       "Notre option écoresponsable. 100% électrique, silencieuse et confortable pour les courts trajets et transferts en solo ou en couple. Zéro émission, technologie Autopilot, intérieur minimaliste premium.",
     features: [
@@ -99,24 +99,15 @@ export default function Fleet() {
               className="group bg-white/5 hover:bg-white/10 transition-all duration-500 flex flex-col"
             >
               {/* Image area */}
-              <div className="relative bg-white h-52 overflow-hidden flex items-center justify-center">
-                {v.isLocal ? (
-                  <Image
-                    src={v.image}
-                    alt={v.name}
-                    width={480}
-                    height={280}
-                    className="object-contain w-full h-full p-4 transition-transform duration-700 group-hover:scale-105"
-                    quality={90}
-                  />
-                ) : (
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: `url(${v.image})` }}
-                    role="img"
-                    aria-label={v.name}
-                  />
-                )}
+              <div className="relative h-52 overflow-hidden flex items-center justify-center">
+                <Image
+                  src={v.image}
+                  alt={v.name}
+                  width={480}
+                  height={280}
+                  className="object-contain w-full h-full p-4 transition-transform duration-700 group-hover:scale-105 drop-shadow-2xl"
+                  quality={90}
+                />
                 <div
                   className="absolute top-4 left-4 text-white text-xs font-bold px-3 py-1 uppercase tracking-widest"
                   style={{ background: v.tagColor }}

@@ -10,8 +10,7 @@ const destinations = [
     duration: "30 min de Nice",
     description:
       "Casino de Monte-Carlo, Palais du Prince, Musée Océanographique, Grand Prix Circuit, les Jardins Exotiques. La Principauté en toute exclusivité.",
-    image:
-      "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=900&q=85",
+    image: "/images/monaco.jpg",
     from: "dès 90€",
     highlight: "Incontournable",
   },
@@ -21,9 +20,8 @@ const destinations = [
     duration: "1h30 de Nice",
     description:
       "La place des Lices, le port de pêche, les plages de Pampelonne, Ramatuelle et ses ruelles médiévales. Le glamour de la Côte authentique.",
-    image:
-      "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?auto=format&fit=crop&w=900&q=85",
-    from: "dès 350€",
+    image: "/images/saint-tropez.jpg",
+    from: "dès 300€",
     highlight: "Coup de cœur",
   },
   {
@@ -43,9 +41,8 @@ const destinations = [
     duration: "20 min de Nice",
     description:
       "Village médiéval perché à 400m d'altitude surplombant la Méditerranée. Parfumerie Fragonard, Jardin Exotique, vue imprenable sur la Riviera.",
-    image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=900&q=85",
-    from: "dès 120€",
+    image: "/images/eze.jpg",
+    from: "dès 70€",
     highlight: "Vue panoramique",
   },
   {
@@ -56,7 +53,7 @@ const destinations = [
       "Le Fort Carré, le marché Provençal, le Cap d'Antibes, le Musée Picasso et les plages dorées de Juan-les-Pins.",
     image:
       "https://images.unsplash.com/photo-1503917988258-f87a78e3c995?auto=format&fit=crop&w=900&q=85",
-    from: "dès 90€",
+    from: "dès 80€",
     highlight: null,
   },
   {
@@ -65,9 +62,8 @@ const destinations = [
     duration: "45 min de Nice",
     description:
       "Capitale mondiale du parfum. Visite des maisons Fragonard, Molinard ou Galimard, vieille ville et ses ruelles parfumées.",
-    image:
-      "https://images.unsplash.com/photo-1593118247619-e2d6f056869e?auto=format&fit=crop&w=900&q=85",
-    from: "dès 140€",
+    image: "/images/grasse.jpg",
+    from: "dès 100€",
     highlight: null,
   },
   {
@@ -86,10 +82,10 @@ const destinations = [
     slug: null,
     duration: "NCE · Monaco · Cannes",
     description:
-      "Prise en charge à l'aéroport de Nice Côte d'Azur (T1 & T2). Suivi de vol en temps réel, accueil personnalisé, pas de supplément pour les retards.",
+      "Prise en charge à l'aéroport de Nice Côte d'Azur (T1 & T2). Accueil en pancarte personnalisée, 1h d'attente gratuite, suivi de vol en temps réel.",
     image:
       "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=85",
-    from: "dès 80€",
+    from: "dès 50€",
     highlight: "Ponctualité garantie",
   },
 ];
