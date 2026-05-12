@@ -3,40 +3,36 @@
 import { Check, Phone } from "lucide-react";
 
 const transfers = [
-  { route: "Nice Aéroport → Nice Centre", duration: "20 min", price: "80€" },
+  { route: "Nice Aéroport → Nice Centre", duration: "20 min", price: "100€" },
   { route: "Nice Aéroport → Monaco", duration: "30 min", price: "90€" },
-  { route: "Nice Aéroport → Cannes", duration: "40 min", price: "120€" },
+  { route: "Nice Aéroport → Cannes", duration: "30 min", price: "100€" },
   { route: "Nice Aéroport → Saint-Tropez", duration: "1h30", price: "290€" },
-  { route: "Nice → Monaco (Aller simple)", duration: "30 min", price: "90€" },
-  { route: "Nice → Cannes (Aller simple)", duration: "35 min", price: "100€" },
-  { route: "Nice → Menton (Aller simple)", duration: "35 min", price: "95€" },
-  { route: "Monaco → Cannes (Aller simple)", duration: "45 min", price: "120€" },
 ];
 
 const excursions = [
   {
     name: "Monaco & Monte-Carlo",
     duration: "Demi-journée (4h)",
-    price: "280€",
+    price: "390€",
     includes: ["Casino, Palais du Prince", "Musée Océanographique", "Port Hercule", "Arrêts photos"],
   },
   {
     name: "Excursion Complète Riviera",
     duration: "Journée (8h)",
-    price: "520€",
+    price: "730€",
     includes: ["Monaco + Eze + Nice", "Antibes + Cap d'Antibes", "Déjeuner inclus (option)", "Itinéraire personnalisé"],
     popular: true,
   },
   {
     name: "Saint-Tropez & Var",
     duration: "Journée (8h)",
-    price: "480€",
+    price: "670€",
     includes: ["Port de Saint-Tropez", "Plages de Pampelonne", "Ramatuelle", "Village de Grimaud"],
   },
   {
     name: "Gorges du Verdon",
     duration: "Journée (9h)",
-    price: "550€",
+    price: "770€",
     includes: ["Moustiers-Sainte-Marie", "Lac de Sainte-Croix", "Balcon du Verdon", "Point Sublime"],
   },
 ];
