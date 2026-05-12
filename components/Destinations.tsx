@@ -1,30 +1,34 @@
 "use client";
 
+import Link from "next/link";
 import { Clock, ArrowRight } from "lucide-react";
 
 const destinations = [
   {
     name: "Monaco & Monte-Carlo",
+    slug: "monaco",
     duration: "30 min de Nice",
     description:
       "Casino de Monte-Carlo, Palais du Prince, Musée Océanographique, Grand Prix Circuit, les Jardins Exotiques. La Principauté en toute exclusivité.",
     image:
-      "https://images.unsplash.com/photo-1609172782547-b22b01a5e3d1?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=900&q=85",
     from: "dès 90€",
     highlight: "Incontournable",
   },
   {
     name: "Saint-Tropez",
+    slug: "saint-tropez",
     duration: "1h30 de Nice",
     description:
       "La place des Lices, le port de pêche, les plages de Pampelonne, Ramatuelle et ses ruelles médiévales. Le glamour de la Côte authentique.",
     image:
-      "https://images.unsplash.com/photo-1504859468489-a2e0e4d03fe2?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?auto=format&fit=crop&w=900&q=85",
     from: "dès 350€",
     highlight: "Coup de cœur",
   },
   {
     name: "Cannes",
+    slug: "cannes",
     duration: "35 min de Nice",
     description:
       "La Croisette, le Palais des Festivals, le marché Forville, l'Île Sainte-Marguerite. Cannes au-delà du cinéma.",
@@ -35,36 +39,40 @@ const destinations = [
   },
   {
     name: "Èze Village",
+    slug: "eze",
     duration: "20 min de Nice",
     description:
       "Village médiéval perché à 400m d'altitude surplombant la Méditerranée. Parfumerie Fragonard, Jardin Exotique, vue imprenable sur la Riviera.",
     image:
-      "https://images.unsplash.com/photo-1548133451-4e64f2d67a32?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=900&q=85",
     from: "dès 120€",
     highlight: "Vue panoramique",
   },
   {
     name: "Antibes & Juan-les-Pins",
+    slug: "antibes",
     duration: "25 min de Nice",
     description:
       "Le Fort Carré, le marché Provençal, le Cap d'Antibes, le Musée Picasso et les plages dorées de Juan-les-Pins.",
     image:
-      "https://images.unsplash.com/photo-1559333251-ead84a2c7c11?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1503917988258-f87a78e3c995?auto=format&fit=crop&w=900&q=85",
     from: "dès 90€",
     highlight: null,
   },
   {
     name: "Grasse",
+    slug: "grasse",
     duration: "45 min de Nice",
     description:
       "Capitale mondiale du parfum. Visite des maisons Fragonard, Molinard ou Galimard, vieille ville et ses ruelles parfumées.",
     image:
-      "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1593118247619-e2d6f056869e?auto=format&fit=crop&w=900&q=85",
     from: "dès 140€",
     highlight: null,
   },
   {
     name: "Gorges du Verdon",
+    slug: "gorges-du-verdon",
     duration: "1h45 de Nice",
     description:
       "Le Grand Canyon européen. Moustiers-Sainte-Marie, le lac de Sainte-Croix, les falaises turquoise. Nature à couper le souffle.",
@@ -75,6 +83,7 @@ const destinations = [
   },
   {
     name: "Transfert Aéroport Nice",
+    slug: null,
     duration: "NCE · Monaco · Cannes",
     description:
       "Prise en charge à l'aéroport de Nice Côte d'Azur (T1 & T2). Suivi de vol en temps réel, accueil personnalisé, pas de supplément pour les retards.",
@@ -159,18 +168,26 @@ export default function Destinations() {
 
                 <div className="flex items-center justify-between">
                   <span className="text-[#C9A96E] font-bold text-sm">{dest.from}</span>
-                  <a
-                    href="#contact"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      document
-                        .querySelector("#contact")
-                        ?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    className="flex items-center gap-1 text-white text-xs font-semibold uppercase tracking-wide hover:text-[#C9A96E] transition-colors"
-                  >
-                    Réserver <ArrowRight size={14} />
-                  </a>
+                  <div className="flex items-center gap-3">
+                    {dest.slug && (
+                      <Link
+                        href={`/destinations/${dest.slug}`}
+                        className="flex items-center gap-1 text-white/70 text-xs font-semibold uppercase tracking-wide hover:text-[#C9A96E] transition-colors"
+                      >
+                        Découvrir
+                      </Link>
+                    )}
+                    <a
+                      href="#contact"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className="flex items-center gap-1 text-white text-xs font-semibold uppercase tracking-wide hover:text-[#C9A96E] transition-colors"
+                    >
+                      Réserver <ArrowRight size={14} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
