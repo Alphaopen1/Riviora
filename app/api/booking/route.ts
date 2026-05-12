@@ -5,7 +5,26 @@ function sanitize(s: unknown): string {
   return String(s ?? "").replace(/[<>]/g, "").trim().slice(0, 500);
 }
 
+const rateMap = new Map<string, { count: number; reset: number }>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateMap.get(ip);
+  if (!entry || now > entry.reset) {
+    rateMap.set(ip, { count: 1, reset: now + 60_000 });
+    return false;
+  }
+  if (entry.count >= 5) return true;
+  entry.count++;
+  return false;
+}
+
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0] ?? "unknown";
+  if (isRateLimited(ip)) {
+    return NextResponse.json({ error: "Trop de demandes. Réessayez dans une minute." }, { status: 429 });
+  }
+
   try {
     const body = await req.json();
 
