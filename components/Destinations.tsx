@@ -78,6 +78,50 @@ const destinations = [
     highlight: "Journée complète",
   },
   {
+    name: "Portofino",
+    slug: "portofino",
+    duration: "2h00 de Nice",
+    description:
+      "Le village le plus pittoresque de la Riviera italienne. Port coloré, villas Liberty et eaux cristallines du Golfe du Tigullio.",
+    image:
+      "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=900&q=85",
+    from: "Sur demande",
+    highlight: "Riviera Italienne",
+  },
+  {
+    name: "Cinque Terre",
+    slug: "cinque-terre",
+    duration: "2h45 de Nice",
+    description:
+      "Cinq villages suspendus entre falaises et Méditerranée. Maisons multicolores, sentiers côtiers et gastronomie ligure incontournable.",
+    image:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=85",
+    from: "Sur demande",
+    highlight: null,
+  },
+  {
+    name: "Courchevel",
+    slug: "courchevel",
+    duration: "4h30 de Nice",
+    description:
+      "La station de ski la plus prestigieuse des Alpes françaises. Pistes enneigées, chalets de luxe et art de vivre alpin.",
+    image:
+      "https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=900&q=85",
+    from: "Sur demande",
+    highlight: null,
+  },
+  {
+    name: "Genève",
+    slug: "geneve",
+    duration: "5h00 de Nice",
+    description:
+      "La cité internationale par excellence. Lac Léman, vieille ville, montres de luxe et gastronomie franco-suisse d'exception.",
+    image:
+      "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=900&q=85",
+    from: "Sur demande",
+    highlight: null,
+  },
+  {
     name: "Transfert Aéroport Nice",
     slug: null,
     duration: "NCE · Monaco · Cannes",

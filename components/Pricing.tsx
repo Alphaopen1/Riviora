@@ -3,19 +3,19 @@
 import { Check, Phone } from "lucide-react";
 
 const transfers = [
-  { route: "Nice Aéroport → Nice Centre", duration: "20 min", price: "100€" },
+  { route: "Nice Aéroport → Nice Centre", duration: "20 min", price: "50€" },
   { route: "Nice Aéroport → Monaco", duration: "30 min", price: "90€" },
   { route: "Nice Aéroport → Cannes", duration: "30 min", price: "100€" },
-  { route: "Nice Aéroport → Saint-Tropez", duration: "1h30", price: "290€" },
+  { route: "Nice Aéroport → Saint-Tropez", duration: "1h30", price: "300€" },
 ];
 
 const international = [
-  { route: "Nice → Genève", duration: "3h00", price: "Sur demande" },
   { route: "Nice → Milano (Milan)", duration: "3h30", price: "Sur demande" },
-  { route: "Nice → Portofino", duration: "2h30", price: "Sur demande" },
+  { route: "Nice → Portofino", duration: "2h00", price: "Sur demande" },
   { route: "Nice → Cinque Terre", duration: "2h45", price: "Sur demande" },
-  { route: "Nice → Courchevel", duration: "3h15", price: "Sur demande" },
-  { route: "Nice → Mégève", duration: "3h00", price: "Sur demande" },
+  { route: "Nice → Genève", duration: "5h00", price: "Sur demande" },
+  { route: "Nice → Courchevel", duration: "4h30", price: "Sur demande" },
+  { route: "Nice → Mégève", duration: "4h00", price: "Sur demande" },
 ];
 
 const excursions = [

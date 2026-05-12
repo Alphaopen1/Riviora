@@ -16,11 +16,11 @@ const localDestinations = [
 
 const international = [
   { slug: "milan", name: "Milan (Italie)", duration: "3h30" },
-  { slug: "portofino", name: "Portofino (Italie)", duration: "2h30" },
+  { slug: "portofino", name: "Portofino (Italie)", duration: "2h00" },
   { slug: "cinque-terre", name: "Cinque Terre (Italie)", duration: "2h45" },
-  { slug: "geneve", name: "Genève (Suisse)", duration: "3h00" },
-  { slug: "courchevel", name: "Courchevel (Alpes)", duration: "3h15" },
-  { slug: "megeve", name: "Mégève (Alpes)", duration: "3h00" },
+  { slug: "geneve", name: "Genève (Suisse)", duration: "5h00" },
+  { slug: "courchevel", name: "Courchevel (Alpes)", duration: "4h30" },
+  { slug: "megeve", name: "Mégève (Alpes)", duration: "4h00" },
 ];
 
 const navLinks = [
