@@ -9,6 +9,15 @@ const transfers = [
   { route: "Nice Aéroport → Saint-Tropez", duration: "1h30", price: "290€" },
 ];
 
+const international = [
+  { route: "Nice → Genève", duration: "3h00", price: "Sur demande" },
+  { route: "Nice → Milano (Milan)", duration: "3h30", price: "Sur demande" },
+  { route: "Nice → Portofino", duration: "2h30", price: "Sur demande" },
+  { route: "Nice → Cinque Terre", duration: "2h45", price: "Sur demande" },
+  { route: "Nice → Courchevel", duration: "3h15", price: "Sur demande" },
+  { route: "Nice → Mégève", duration: "3h00", price: "Sur demande" },
+];
+
 const excursions = [
   {
     name: "Monaco & Monte-Carlo",
@@ -124,6 +133,40 @@ export default function Pricing() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* International transfers */}
+        <div className="mt-12">
+          <h3 className="text-xl font-bold text-[#0B1F3A] mb-6 flex items-center gap-3">
+            <span className="w-8 h-0.5 bg-[#C9A96E]" />
+            Transferts Internationaux
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {international.map((t) => (
+              <div
+                key={t.route}
+                className="bg-white border border-gray-100 p-5 flex items-center justify-between hover:border-[#C9A96E] transition-colors group"
+              >
+                <div>
+                  <div className="font-semibold text-[#0B1F3A] text-sm">{t.route}</div>
+                  <div className="text-gray-400 text-xs mt-0.5">{t.duration} environ</div>
+                </div>
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="text-[#C9A96E] font-bold text-xs uppercase tracking-wide hover:underline flex-shrink-0 ml-3"
+                >
+                  Devis
+                </a>
+              </div>
+            ))}
+          </div>
+          <p className="text-gray-400 text-xs mt-3">
+            * Tarifs variables selon la saison et le type de véhicule. Devis gratuit en moins de 2 heures.
+          </p>
         </div>
 
         {/* Bottom note */}

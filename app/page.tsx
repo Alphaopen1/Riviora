@@ -8,6 +8,8 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
+import BookingWizard from "@/components/BookingWizard";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -114,9 +116,29 @@ export default function Home() {
         <Pricing />
         <Testimonials />
         <FAQ />
+
+        {/* Booking Wizard section */}
+        <section id="booking" className="bg-[#0B1F3A] py-20 px-4 sm:px-6">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-10">
+              <p className="text-[#C9A96E] font-semibold text-sm uppercase tracking-widest mb-3">
+                Réservation Express
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Réservez en <span className="text-[#C9A96E]">2 minutes</span>
+              </h2>
+              <p className="text-white/55 text-base">
+                Répondez à quelques questions et recevez votre devis par email et WhatsApp.
+              </p>
+            </div>
+            <BookingWizard />
+          </div>
+        </section>
+
         <Contact />
       </main>
       <Footer />
+      <WhatsAppWidget />
     </>
   );
 }

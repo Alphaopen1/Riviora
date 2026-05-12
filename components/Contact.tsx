@@ -37,10 +37,22 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate form submission
-    await new Promise((r) => setTimeout(r, 1000));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      setSubmitted(true);
+      if (data.waUrl) {
+        setTimeout(() => window.open(data.waUrl, "_blank"), 500);
+      }
+    } catch {
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
