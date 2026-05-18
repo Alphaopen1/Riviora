@@ -11,18 +11,60 @@
   },
   "hero": {
     "badge": "Französische Riviera · Monaco · Europa",
-    "title1": "Ihr privater",
-    "title2": "Fahrer an der",
-    "title3": "Riviera",
-    "subtitle": "Maßgeschneiderte Ausflüge, Flughafentransfers und Fahrerservice. Monaco, Saint-Tropez, Cannes und die gesamte Côte d'Azur.",
+    "ratingBadge": "4,9/5 · +500 Google-Bewertungen · Seit 2009",
     "cta1": "Ausflug buchen",
-    "cta2": "Unsere Fahrzeuge entdecken"
+    "cta2": "Unsere Fahrzeuge entdecken",
+    "trustBadges": [
+      "Offizielle VTC-Lizenz",
+      "Zweisprachige Fahrer FR/EN",
+      "24/7 verfügbar",
+      "Antwort innerhalb von 2h"
+    ],
+    "scrollLabel": "Unsere Leistungen entdecken"
   },
   "services": {
     "badge": "Unsere Leistungen",
-    "title": "Alles für Ihren",
-    "titleAccent": "perfekten Aufenthalt",
-    "subtitle": "Vom Flughafen bis zu Ihren Lieblingszielen begleitet Sie Riviora mit Eleganz und Professionalität."
+    "title": "Erstklassiger Service an",
+    "titleAccent": "der Riviera",
+    "subtitle": "Seit 2009 begleitet Riviora Reisende, Familien und Geschäftsleute auf der gesamten Côte d'Azur mit Premium-Fahrzeugen und zertifizierten Fahrern.",
+    "statLabels": [
+      "+500 Google-Bewertungen",
+      "Jahre Erfahrung",
+      "Zufriedene Kunden",
+      "Verfügbarkeit"
+    ],
+    "mostRequested": "Am meisten gebucht",
+    "quoteBtn": "Angebot anfragen",
+    "ctaTitle": "Benötigen Sie einen maßgeschneiderten Service?",
+    "ctaSubtitle": "Antwort garantiert in unter 2 Stunden · Kostenloses und unverbindliches Angebot",
+    "ctaCall": "Jetzt anrufen",
+    "ctaEmail": "E-Mail schreiben",
+    "items": [
+      {
+        "title": "Private Transfers",
+        "subtitle": "Flughafen · Bahnhof · Hotel",
+        "description": "Transfers zum/vom Flughafen Nizza (NCE), Monaco, Cannes. Begrüßung mit Namensschild, Gepäckhilfe, pünktliche Abholung garantiert.",
+        "features": ["Echtzeit-Flugverfolgung", "Namensschild-Empfang", "Kein Gepäckaufschlag"],
+        "from": "Ab 80€",
+        "popular": false
+      },
+      {
+        "title": "Private Ausflüge",
+        "subtitle": "Ganztag · Halbtag · Individuell",
+        "description": "Monaco, Saint-Tropez, Eze, die Gorges du Verdon, Moustiers-Sainte-Marie… Vollständig personalisierte Reiserouten nach Ihren Wünschen.",
+        "features": ["Maßgeschneiderte Route", "Zweisprachiger Fahrer-Guide", "Fotostopps inklusive"],
+        "from": "Ab 350€/Tag",
+        "popular": true
+      },
+      {
+        "title": "Gruppen & Veranstaltungen",
+        "subtitle": "9 bis 21 Personen · Sprinter",
+        "description": "Firmenseminare, Geburtstage, Junggesellenabschiede, Hochzeiten. Unser 21-sitziger Sprinter deckt all Ihre Gruppenveranstaltungen ab.",
+        "features": ["Bis zu 21 Passagiere", "Individuelles Angebot", "Veranstaltungskoordination"],
+        "from": "Auf Anfrage",
+        "popular": false
+      }
+    ]
   },
   "destinations": {
     "badge": "Reiseziele",
@@ -38,37 +80,166 @@
     "badge": "Unsere Fahrzeuge",
     "title": "Fahrzeuge auf der Höhe",
     "titleAccent": "Ihrer Reise",
-    "subtitle": "Drei Kategorien für jeden Bedarf, vom umweltfreundlichen Fahrzeug bis zur Großgruppe.",
+    "subtitle": "Drei Kategorien für jeden Bedarf, vom umweltfreundlichen Fahrzeug bis zur Großgruppe. Jedes Fahrzeug wird auf höchstem Sauberkeits- und Ausstattungsniveau gehalten.",
     "book": "Buchen",
-    "idealFor": "Ideal für"
+    "idealFor": "Ideal für",
+    "vehicles": [
+      {
+        "category": "Öko · Elektrisch · 1–3 Passagiere",
+        "description": "Unsere umweltfreundliche Option. 100% elektrisch, leise und komfortabel für kurze Transfers allein oder zu zweit. Null Emissionen, Autopilot-Technologie, minimalistisches Premium-Interieur.",
+        "features": ["1–3 Passagiere", "100% elektrisch", "Null CO₂-Emissionen", "Aktiver Autopilot", "WLAN & USB-Laden", "Automatische Klimaanlage"],
+        "ideal": "Kurze Transfers · Umweltfreundlich"
+      },
+      {
+        "category": "Prestige · 4–8 Passagiere",
+        "description": "Der Maßstab für privaten Transport an der Côte d'Azur. Schwarzes Lederinterieur, individuelle Klimatisierung, getönte Scheiben, Klapptische und WLAN. Ideal für Familien und VIP-Gruppen.",
+        "features": ["4–8 Passagiere", "WLAN inklusive", "4-Zonen-Klimaanlage", "Premium-Leder", "USB & 220V-Anschluss", "Getönte Scheiben"],
+        "ideal": "Familien · Ausflüge · VIP"
+      },
+      {
+        "category": "Großgruppe · 9–21 Passagiere",
+        "description": "Die ideale Lösung für Gruppen, Seminare und Veranstaltungen. Hochwertige Konfiguration, verstellbare Sitze, großzügiger Gepäckraum und Hochgeschwindigkeits-WLAN für alle Passagiere.",
+        "features": ["9–21 Passagiere", "Hochgeschwindigkeits-WLAN", "Verstärkte Klimaanlage", "Verstellbare Sitze", "Beschallungsanlage", "XL-Gepäckraum"],
+        "ideal": "Gruppen · Seminare · Veranstaltungen"
+      }
+    ],
+    "certifications": [
+      { "label": "VTC-Lizenz", "sub": "Offiziell & versichert" },
+      { "label": "Versicherung", "sub": "Vollkasko für Passagiere" },
+      { "label": "Wartung", "sub": "Inspektion vor jeder Fahrt" },
+      { "label": "Fahrer", "sub": "Jährliche Sicherheitsschulung" }
+    ]
   },
   "pricing": {
     "badge": "Preise",
     "title": "Transparente",
     "titleAccent": "Preise",
     "titleEnd": ", keine Überraschungen",
+    "subtitle": "Inklusivpreise inkl. MwSt. Keine versteckten Gebühren, keine Verspätungskosten.",
     "transfers": "Transfers & Flughafen",
     "excursions": "Ausflüge & Tagestouren",
     "international": "Internationale Transfers",
     "onRequest": "Auf Anfrage",
     "popular": "BELIEBT",
+    "mostPopular": "Am beliebtesten",
     "includes": "Inklusive",
     "quoteBtn": "Angebot anfragen",
-    "note": "Preise für Mercedes V-Klasse bis 8 Pax. +30% Aufpreis für den 21-Sitzer Sprinter.",
-    "transferNote": "Alle Transfers beinhalten: personalisiertes Namensschild · 1 Stunde kostenlose Wartezeit · Echtzeit-Flugverfolgung"
+    "approx": "ca.",
+    "vat": "inkl. MwSt.",
+    "perVehicle": "pro Fahrzeug",
+    "quote": "Angebot",
+    "note": "* Preise für Mercedes V-Klasse bis 8 Pax. +30% Aufpreis für 21-sitzigen Sprinter.",
+    "intlNote": "* Preise variieren je nach Saison und Fahrzeugtyp. Kostenloses Angebot in unter 2 Stunden.",
+    "transferNote": "Transfers beinhalten: personalisiertes Namensschild · 1h kostenlose Wartezeit · Echtzeit-Flugverfolgung",
+    "ctaTitle": "Route nicht gefunden?",
+    "ctaText": "Wir bieten maßgeschneiderte Angebote für alle Reisearten: ganze Tage, Wochenenden, mehrtägige Rundreisen, Firmenveranstaltungen. Kontaktieren Sie uns und erhalten Sie Ihr Angebot in unter 2 Stunden.",
+    "ctaCall": "Für ein Angebot anrufen",
+    "ctaEmail": "Angebot per E-Mail"
   },
   "faq": {
     "badge": "FAQ",
     "title": "Häufig gestellte",
     "titleAccent": "Fragen",
     "subtitle": "Alles, was Sie vor der Buchung Ihres Ausflugs oder Transfers wissen müssen.",
-    "notFound": "Keine Antwort auf Ihre Frage gefunden?"
+    "notFound": "Keine Antwort auf Ihre Frage gefunden?",
+    "callBtn": "Anrufen: +33 7 87 24 86 91",
+    "emailBtn": "contact@riviora.fr",
+    "items": [
+      {
+        "question": "Wie buche ich einen Privatfahrer oder einen Ausflug mit Riviora?",
+        "answer": "Die Buchung erfolgt in 3 Schritten: füllen Sie unser Online-Formular aus, rufen Sie uns unter +33 7 87 24 86 91 an oder schreiben Sie an contact@riviora.fr. Wir antworten innerhalb von 2 Stunden mit einer Bestätigung und einem definitiven Angebot. Für dringende Buchungen rufen Sie uns direkt an — wir sind 24/7 erreichbar."
+      },
+      {
+        "question": "Welche Zahlungsmethoden werden akzeptiert?",
+        "answer": "Wir akzeptieren Banküberweisungen, Kreditkarten (Visa, Mastercard, Amex) und Bargeld. Für Unternehmen bieten wir aufgeschobene Rechnungsstellung an. Für Standard-Transfers ist keine Anzahlung erforderlich; für Tagesausflüge oder länger wird eine Anzahlung von 30% verlangt."
+      },
+      {
+        "question": "Gibt es Mehrkosten bei Flugverspätungen?",
+        "answer": "Nein. Wir verfolgen alle Flüge in Echtzeit anhand der Flugnummer, die Sie uns mitteilen. Bei Verspätungen passt Ihr Fahrer die Ankunftszeit ohne Aufpreis an. Die Wartezeit am Flughafen ist bis 60 Minuten nach der Landung inklusive."
+      },
+      {
+        "question": "Kann ich meine Ausflugsstrecke anpassen?",
+        "answer": "Absolut. Jeder Riviora-Ausflug ist vollständig individualisierbar. Teilen Sie uns Ihre Interessen (Gastronomie, Kultur, Strände, Shopping, Fotografie…), Ihre zeitlichen Einschränkungen und Ihr Aktivitätsniveau mit. Ihr Fahrer-Guide passt das Programm in Echtzeit an Ihre Wünsche an."
+      },
+      {
+        "question": "Wie viele Passagiere passen in Ihre Fahrzeuge?",
+        "answer": "Unsere Mercedes V-Klasse bietet komfortabel Platz für bis zu 8 Passagiere mit ihrem Gepäck. Für Gruppen von 9 bis 21 Personen steht ein ausgestatteter Mercedes Sprinter zur Verfügung. Für größere Gruppen können wir mehrere Fahrzeuge koordinieren — kontaktieren Sie uns für ein Gruppenangebot."
+      },
+      {
+        "question": "Sprechen Ihre Fahrer Englisch?",
+        "answer": "Ja. Alle unsere Fahrer sind zweisprachig Französisch-Englisch, und einige sprechen auch Italienisch, Spanisch oder Arabisch. Für Gruppen, die eine bestimmte Sprache benötigen, geben Sie dies bitte bei der Buchung an."
+      },
+      {
+        "question": "Bieten Sie Ausflüge ab Cannes, Monaco oder anderen Städten an?",
+        "answer": "Ja, Riviora operiert aus allen großen Städten der Côte d'Azur: Nizza, Cannes, Monaco, Antibes, Menton, Saint-Raphaël. Teilen Sie uns Ihren Abfahrtsort bei der Buchung mit und wir passen den Preis entsprechend an."
+      },
+      {
+        "question": "Was ist Ihre Stornierungspolitik?",
+        "answer": "Kostenlose Stornierung bis 48h vor der Leistung. Zwischen 24h und 48h: 50% des Betrags wird einbehalten. Unter 24h: 100% einbehalten. No-Shows werden vollständig berechnet. Bei höherer Gewalt (extremes Wetter, Krankheit mit Nachweis) finden wir immer eine Lösung."
+      },
+      {
+        "question": "Ist Riviora abends, an Wochenenden und an Feiertagen verfügbar?",
+        "answer": "Ja, wir sind 24/7, 365 Tage im Jahr verfügbar, einschließlich Feiertagen und während großer Veranstaltungen (Grand Prix von Monaco, Filmfestspiele Cannes usw.). Ein Nachtzuschlag (+20%) gilt von 22:00 bis 6:00 Uhr."
+      },
+      {
+        "question": "Kann ich ein Fahrzeug mit Fahrer für einen ganzen Tag mieten?",
+        "answer": "Ja, das ist eines unserer beliebtesten Pakete. Die ganztägige Fahrermiete (8h) ermöglicht es Ihnen, mehrere Ziele in Ihrem eigenen Tempo ohne Zeitdruck zu besuchen. Perfekt zum Erkunden der Riviera. Ab 480€/Tag."
+      }
+    ]
   },
   "contact": {
-    "badge": "Kontakt",
-    "title": "Buchen Sie Ihren",
-    "titleAccent": "Ausflug",
-    "subtitle": "Kontaktieren Sie uns für ein individuelles Angebot. Antwort garantiert in weniger als 2 Stunden."
+    "badge": "Kontakt & Buchung",
+    "title": "Planen Sie Ihr",
+    "titleAccent": "Riviera-Erlebnis",
+    "subtitle": "Füllen Sie das Formular aus oder kontaktieren Sie uns direkt. Antwort garantiert innerhalb von 2 Stunden.",
+    "directContact": "Direkt kontaktieren",
+    "phoneLabel": "Telefon & WhatsApp",
+    "emailLabel": "E-Mail",
+    "availabilityLabel": "Verfügbarkeit",
+    "availability": "24/7",
+    "availabilitySub": "365 Tage im Jahr",
+    "zoneLabel": "Einsatzgebiet",
+    "zone": "Côte d'Azur & Riviera",
+    "zoneSub": "Nizza · Monaco · Cannes · Var",
+    "trustTitle": "Ihre Buchung ist sicher",
+    "trustItems": [
+      "Kostenloses und unverbindliches Angebot",
+      "Antwort garantiert innerhalb von 2h",
+      "Kostenlose Stornierung innerhalb von 48h",
+      "Sichere Zahlung"
+    ],
+    "serviceLabel": "Art der Leistung *",
+    "servicePlaceholder": "Leistung auswählen",
+    "serviceOptions": [
+      "Flughafentransfer",
+      "Bahnhof-/Hoteltransfer",
+      "Halbtages-Ausflug",
+      "Ganztages-Ausflug",
+      "Tagesweise Fahrermiete",
+      "Gruppen-/Veranstaltungstransport",
+      "Sonstiges"
+    ],
+    "nameLabel": "Vollständiger Name *",
+    "namePlaceholder": "Max Mustermann",
+    "emailFormLabel": "E-Mail *",
+    "emailPlaceholder": "max@beispiel.de",
+    "phoneFormLabel": "Telefon",
+    "phonePlaceholder": "+49 170 0000000",
+    "passengersLabel": "Anzahl der Passagiere",
+    "passengersPlaceholder": "2",
+    "dateLabel": "Gewünschtes Datum *",
+    "departureLabel": "Abfahrtsort",
+    "departurePlaceholder": "Flughafen Nizza, Hotel…",
+    "destinationLabel": "Ziel / Gewünschte Route",
+    "destinationPlaceholder": "Monaco, Saint-Tropez, Gorges du Verdon…",
+    "messageLabel": "Zusätzliche Informationen",
+    "messagePlaceholder": "Teilen Sie uns Ihre Wünsche, Zeitbeschränkungen, Flugnummer bei Flughafentransfers mit…",
+    "submitBtn": "Angebotsanfrage senden",
+    "loading": "Wird gesendet…",
+    "privacyNote": "Sichere Daten · Antwort garantiert innerhalb von 2h · Unverbindlich",
+    "successTitle": "Anfrage gesendet!",
+    "successText": "Wir antworten innerhalb von 2 Stunden.",
+    "successImmediate": "Für eine sofortige Antwort:"
   },
   "booking": {
     "badge": "Schnellbuchung",
@@ -77,13 +248,50 @@
     "subtitle": "Beantworten Sie einige Fragen und erhalten Sie Ihr Angebot per E-Mail und WhatsApp."
   },
   "footer": {
-    "tagline": "Premium-Ausflüge & private Transfers an der französischen Riviera.",
+    "tagline": "Privatfahrer & Premium-Ausflüge an der Côte d'Azur seit 2009. Ihr vertrauenswürdiger Partner zum Entdecken der französischen Riviera.",
+    "ctaBand": "Bereit, die Côte d'Azur zu entdecken? Jetzt buchen.",
+    "ctaWrite": "E-Mail schreiben",
+    "servicesTitle": "Unsere Leistungen",
+    "destinationsTitle": "Reiseziele",
+    "infoTitle": "Informationen",
     "services": "Leistungen",
     "destinations": "Reiseziele",
     "legal": "Rechtliches",
     "privacy": "Datenschutz",
     "terms": "AGB",
-    "rights": "Alle Rechte vorbehalten."
+    "rights": "Alle Rechte vorbehalten.",
+    "servicesList": [
+      "Flughafentransfer Nizza",
+      "Privater VTC-Fahrer",
+      "Halbtages-Ausflüge",
+      "Ganztages-Ausflüge",
+      "Gruppentransport",
+      "Seminare & Veranstaltungen",
+      "Fahrermiete"
+    ],
+    "destinationsList": [
+      "Monaco & Monte-Carlo",
+      "Saint-Tropez",
+      "Cannes & La Croisette",
+      "Eze Village",
+      "Antibes & Cap d'Antibes",
+      "Grasse — Parfümhauptstadt",
+      "Gorges du Verdon"
+    ],
+    "infoLinks": [
+      { "label": "Über Riviora", "href": "#services" },
+      { "label": "Unsere Fahrzeuge", "href": "#flotte" },
+      { "label": "Preise", "href": "#tarifs" },
+      { "label": "Kundenbewertungen", "href": "#avis" },
+      { "label": "FAQ", "href": "#faq" },
+      { "label": "Impressum", "href": "/mentions-legales" },
+      { "label": "Datenschutz", "href": "/confidentialite" },
+      { "label": "AGB", "href": "/cgv" }
+    ],
+    "serviceZoneLabel": "Einsatzgebiet",
+    "serviceZone": "Nizza · Monaco · Cannes · Antibes · Menton · Grasse · Saint-Tropez · Côte d'Azur",
+    "copyright": "Riviora — Alle Rechte vorbehalten. Privatfahrer & Ausflüge Côte d'Azur.",
+    "licenseInfo": "VTC-Lizenz · Nizza, Côte d'Azur, Frankreich"
   },
   "destPage": {
     "backToDestinations": "← Alle Reiseziele",

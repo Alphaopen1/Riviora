@@ -11,18 +11,60 @@
   },
   "hero": {
     "badge": "Riviera Francesa · Mónaco · Europa",
-    "title1": "Tu conductor",
-    "title2": "privado en la",
-    "title3": "Riviera",
-    "subtitle": "Excursiones a medida, traslados al aeropuerto y servicio con chófer. Mónaco, Saint-Tropez, Cannes y toda la Costa Azul.",
+    "ratingBadge": "4,9/5 · +500 opiniones en Google · Desde 2009",
     "cta1": "Reservar una excursión",
-    "cta2": "Descubrir nuestra flota"
+    "cta2": "Descubrir nuestra flota",
+    "trustBadges": [
+      "Licencia VTC oficial",
+      "Conductores bilingües FR/EN",
+      "Disponible 24/7",
+      "Respuesta en 2h"
+    ],
+    "scrollLabel": "Descubrir nuestros servicios"
   },
   "services": {
-    "badge": "Nuestros servicios",
-    "title": "Todo para tu",
-    "titleAccent": "estancia perfecta",
-    "subtitle": "Desde el aeropuerto hasta tus destinos favoritos, Riviora te acompaña con elegancia y profesionalidad."
+    "badge": "Nuestros Servicios",
+    "title": "Servicio de excelencia en",
+    "titleAccent": "la Riviera",
+    "subtitle": "Desde 2009, Riviora acompaña a viajeros, familias y profesionales por toda la Costa Azul con vehículos premium y conductores certificados.",
+    "statLabels": [
+      "+500 opiniones en Google",
+      "Años de experiencia",
+      "Clientes satisfechos",
+      "Disponibilidad"
+    ],
+    "mostRequested": "El más solicitado",
+    "quoteBtn": "Solicitar presupuesto",
+    "ctaTitle": "¿Necesita un servicio a medida?",
+    "ctaSubtitle": "Respuesta garantizada en menos de 2 horas · Presupuesto gratuito y sin compromiso",
+    "ctaCall": "Llamar ahora",
+    "ctaEmail": "Enviar un email",
+    "items": [
+      {
+        "title": "Traslados Privados",
+        "subtitle": "Aeropuerto · Estación · Hotel",
+        "description": "Traslados desde/hacia el aeropuerto de Niza (NCE), Mónaco, Cannes. Recibimiento con cartel nominativo, ayuda con el equipaje, puntualidad garantizada.",
+        "features": ["Seguimiento de vuelo en tiempo real", "Recibimiento con cartel nominativo", "Sin recargo por equipaje"],
+        "from": "Desde 80€",
+        "popular": false
+      },
+      {
+        "title": "Excursiones Privadas",
+        "subtitle": "Día completo · Medio día · A medida",
+        "description": "Mónaco, Saint-Tropez, Eze, las Gorges du Verdon, Moustiers-Sainte-Marie… Itinerarios completamente personalizados según sus deseos.",
+        "features": ["Itinerario a medida", "Conductor-guía bilingüe", "Paradas para fotos incluidas"],
+        "from": "Desde 350€/día",
+        "popular": true
+      },
+      {
+        "title": "Grupos & Eventos",
+        "subtitle": "9 a 21 personas · Sprinter",
+        "description": "Seminarios de empresa, cumpleaños, despedidas de soltero/a, bodas. Nuestro Sprinter de 21 plazas cubre todos sus eventos grupales.",
+        "features": ["Hasta 21 pasajeros", "Presupuesto personalizado", "Coordinación de eventos"],
+        "from": "A consultar",
+        "popular": false
+      }
+    ]
   },
   "destinations": {
     "badge": "Destinos",
@@ -38,37 +80,166 @@
     "badge": "Nuestra Flota",
     "title": "Vehículos a la",
     "titleAccent": "altura de tu viaje",
-    "subtitle": "Tres gamas para todas tus necesidades, desde el ecológico hasta el grupo grande.",
+    "subtitle": "Tres gamas para todas tus necesidades, desde el ecológico hasta el grupo grande. Cada vehículo se mantiene en el más alto nivel de limpieza y equipamiento.",
     "book": "Reservar",
-    "idealFor": "Ideal para"
+    "idealFor": "Ideal para",
+    "vehicles": [
+      {
+        "category": "Eco · Eléctrico · 1–3 pasajeros",
+        "description": "Nuestra opción ecorresponsable. 100% eléctrico, silencioso y cómodo para los trayectos cortos en solitario o en pareja. Cero emisiones, tecnología Autopilot, interior minimalista premium.",
+        "features": ["1–3 pasajeros", "100% eléctrico", "Cero emisiones de CO₂", "Autopilot activo", "Wi-Fi y carga USB", "Aire acondicionado automático"],
+        "ideal": "Traslados cortos · Ecorresponsable"
+      },
+      {
+        "category": "Prestigio · 4–8 pasajeros",
+        "description": "La referencia del transporte privado en la Costa Azul. Interior de cuero negro, climatización individual, ventanas tintadas, mesas plegables y Wi-Fi. Ideal para familias y grupos VIP.",
+        "features": ["4–8 pasajeros", "Wi-Fi incluido", "Climatización 4 zonas", "Cuero premium", "Toma USB y 220V", "Ventanas tintadas"],
+        "ideal": "Familias · Excursiones · VIP"
+      },
+      {
+        "category": "Grupo Grande · 9–21 pasajeros",
+        "description": "La solución ideal para grupos, seminarios y eventos. Configuración de alta gama, asientos reclinables, amplio espacio para el equipaje y Wi-Fi de alta velocidad para todos los pasajeros.",
+        "features": ["9–21 pasajeros", "Wi-Fi de alta velocidad", "Climatización reforzada", "Asientos reclinables", "Sistema de sonido a bordo", "Maletero XL"],
+        "ideal": "Grupos · Seminarios · Eventos"
+      }
+    ],
+    "certifications": [
+      { "label": "Licencia VTC", "sub": "Oficial y asegurada" },
+      { "label": "Seguro", "sub": "Todo riesgo viajeros" },
+      { "label": "Mantenimiento", "sub": "Revisión antes de cada servicio" },
+      { "label": "Conductores", "sub": "Formación de seguridad anual" }
+    ]
   },
   "pricing": {
     "badge": "Tarifas",
     "title": "Precios",
     "titleAccent": "transparentes",
     "titleEnd": ", sin sorpresas",
+    "subtitle": "Precios todo incluido, IVA incluido. Sin cargos ocultos, sin recargos por retraso de vuelo.",
     "transfers": "Traslados & Aeropuerto",
     "excursions": "Excursiones & Jornadas",
-    "international": "Traslados internacionales",
+    "international": "Traslados Internacionales",
     "onRequest": "A consultar",
     "popular": "POPULAR",
+    "mostPopular": "El más popular",
     "includes": "Incluye",
     "quoteBtn": "Solicitar presupuesto",
-    "note": "Tarifas para Mercedes Clase V hasta 8 pax. +30% recargo para Sprinter 21 plazas.",
-    "transferNote": "Traslados incluyen: cartel personalizado · 1 hora de espera gratuita · seguimiento de vuelo en tiempo real"
+    "approx": "aprox.",
+    "vat": "IVA inc.",
+    "perVehicle": "por vehículo",
+    "quote": "Presupuesto",
+    "note": "* Tarifas Mercedes Clase V hasta 8 pax. Recargo +30% para Sprinter 21 plazas.",
+    "intlNote": "* Tarifas variables según la temporada y el tipo de vehículo. Presupuesto gratuito en menos de 2 horas.",
+    "transferNote": "Traslados incluyen: cartel nominativo personalizado · 1h de espera gratuita · Seguimiento de vuelo en tiempo real",
+    "ctaTitle": "¿No encuentras tu trayecto?",
+    "ctaText": "Ofrecemos presupuestos a medida para todo tipo de trayectos: jornadas completas, fines de semana, circuitos de varios días, eventos de empresa. Contáctenos y reciba su presupuesto en menos de 2 horas.",
+    "ctaCall": "Llamar para un presupuesto",
+    "ctaEmail": "Presupuesto por email"
   },
   "faq": {
     "badge": "FAQ",
     "title": "Preguntas",
     "titleAccent": "frecuentes",
     "subtitle": "Todo lo que necesitas saber antes de reservar tu excursión o traslado.",
-    "notFound": "¿No encontraste la respuesta a tu pregunta?"
+    "notFound": "¿No encontraste la respuesta a tu pregunta?",
+    "callBtn": "Llamar: +33 7 87 24 86 91",
+    "emailBtn": "contact@riviora.fr",
+    "items": [
+      {
+        "question": "¿Cómo reservo un conductor privado o una excursión con Riviora?",
+        "answer": "La reserva se realiza en 3 pasos: rellene nuestro formulario online, llámenos al +33 7 87 24 86 91 o escríbanos a contact@riviora.fr. Le respondemos en menos de 2 horas con una confirmación y un presupuesto definitivo. Para reservas urgentes, llámenos directamente — estamos disponibles 24/7."
+      },
+      {
+        "question": "¿Qué métodos de pago aceptan?",
+        "answer": "Aceptamos transferencias bancarias, tarjetas de crédito (Visa, Mastercard, Amex) y efectivo. Para empresas, ofrecemos facturación diferida. No se requiere depósito para traslados estándar; se solicita un depósito del 30% para excursiones de un día o más."
+      },
+      {
+        "question": "¿Hay recargos adicionales en caso de retraso de vuelo?",
+        "answer": "No. Seguimos todos los vuelos en tiempo real gracias al número de vuelo que nos facilita. En caso de retraso, su conductor adapta su hora de llegada sin ningún recargo. La espera en el aeropuerto está incluida hasta 60 minutos después del aterrizaje."
+      },
+      {
+        "question": "¿Puedo personalizar el itinerario de mi excursión?",
+        "answer": "Por supuesto. Cada excursión de Riviora es completamente personalizable. Díganos sus intereses (gastronomía, cultura, playas, compras, fotografía…), sus restricciones horarias y su nivel de actividad. Su conductor-guía adaptará el programa en tiempo real según sus deseos."
+      },
+      {
+        "question": "¿Cuántos pasajeros caben en sus vehículos?",
+        "answer": "Nuestro Mercedes Clase V acoge cómodamente hasta 8 pasajeros con su equipaje. Para grupos de 9 a 21 personas, disponemos de un Mercedes Sprinter equipado. Para grupos más grandes, podemos coordinar varios vehículos — contáctenos para un presupuesto de grupos."
+      },
+      {
+        "question": "¿Sus conductores hablan inglés?",
+        "answer": "Sí. Todos nuestros conductores son bilingües francés-inglés, y algunos también hablan italiano, español o árabe. Para grupos que requieran un idioma específico, indíquelo al hacer la reserva."
+      },
+      {
+        "question": "¿Ofrecen excursiones desde Cannes, Mónaco u otras ciudades?",
+        "answer": "Sí, Riviora opera desde todas las grandes ciudades de la Costa Azul: Niza, Cannes, Mónaco, Antibes, Menton, Saint-Raphaël. Indíquenos su punto de partida al hacer la reserva y ajustaremos la tarifa en consecuencia."
+      },
+      {
+        "question": "¿Cuál es su política de cancelación?",
+        "answer": "Cancelación gratuita hasta 48h antes del servicio. Entre 24h y 48h: se retiene el 50% del importe. Menos de 24h: se retiene el 100%. Las ausencias sin aviso se facturan íntegramente. Para casos de fuerza mayor (clima extremo, enfermedad con justificante), siempre encontramos una solución."
+      },
+      {
+        "question": "¿Está Riviora disponible por las noches, los fines de semana y los días festivos?",
+        "answer": "Sí, estamos disponibles 24/7, 365 días al año, incluidos los festivos y durante los eventos (Gran Premio de Mónaco, Festival de Cannes, etc.). Se aplica un recargo nocturno (+20%) de las 22h a las 6h de la mañana."
+      },
+      {
+        "question": "¿Es posible alquilar un vehículo con conductor para todo el día?",
+        "answer": "Sí, es una de nuestras fórmulas más demandadas. La puesta a disposición diaria (8h) con conductor permite visitar varios destinos a su ritmo, sin restricciones horarias. Ideal para descubrir la Riviera en profundidad. Desde 480€/día."
+      }
+    ]
   },
   "contact": {
-    "badge": "Contacto",
-    "title": "Reserva tu",
-    "titleAccent": "excursión",
-    "subtitle": "Contáctanos para un presupuesto personalizado. Respuesta garantizada en menos de 2 horas."
+    "badge": "Contacto & Reserva",
+    "title": "Planifique su",
+    "titleAccent": "experiencia en la Riviera",
+    "subtitle": "Rellene el formulario o contáctenos directamente. Respuesta garantizada en menos de 2 horas.",
+    "directContact": "Contáctenos directamente",
+    "phoneLabel": "Teléfono & WhatsApp",
+    "emailLabel": "Email",
+    "availabilityLabel": "Disponibilidad",
+    "availability": "24/7",
+    "availabilitySub": "365 días al año",
+    "zoneLabel": "Zona de operación",
+    "zone": "Costa Azul & Riviera",
+    "zoneSub": "Niza · Mónaco · Cannes · Var",
+    "trustTitle": "Su reserva está segura",
+    "trustItems": [
+      "Presupuesto gratuito y sin compromiso",
+      "Respuesta garantizada en menos de 2h",
+      "Cancelación gratuita antes de 48h",
+      "Pago seguro"
+    ],
+    "serviceLabel": "Tipo de servicio *",
+    "servicePlaceholder": "Seleccione un servicio",
+    "serviceOptions": [
+      "Traslado aeropuerto",
+      "Traslado estación / hotel",
+      "Excursión de medio día",
+      "Excursión día completo",
+      "Puesta a disposición diaria",
+      "Transporte grupo / evento",
+      "Otro"
+    ],
+    "nameLabel": "Nombre completo *",
+    "namePlaceholder": "Juan García",
+    "emailFormLabel": "Email *",
+    "emailPlaceholder": "juan@ejemplo.es",
+    "phoneFormLabel": "Teléfono",
+    "phonePlaceholder": "+34 600 000 000",
+    "passengersLabel": "Número de pasajeros",
+    "passengersPlaceholder": "2",
+    "dateLabel": "Fecha deseada *",
+    "departureLabel": "Lugar de salida",
+    "departurePlaceholder": "Aeropuerto de Niza, Hotel…",
+    "destinationLabel": "Destino / Itinerario deseado",
+    "destinationPlaceholder": "Mónaco, Saint-Tropez, Gorges du Verdon…",
+    "messageLabel": "Información adicional",
+    "messagePlaceholder": "Indíquenos sus deseos, restricciones horarias, número de vuelo si es traslado aeropuerto…",
+    "submitBtn": "Enviar mi solicitud de presupuesto",
+    "loading": "Enviando…",
+    "privacyNote": "Datos seguros · Respuesta garantizada en 2h · Sin compromiso",
+    "successTitle": "¡Solicitud enviada!",
+    "successText": "Le responderemos en las próximas 2 horas.",
+    "successImmediate": "Para una respuesta inmediata:"
   },
   "booking": {
     "badge": "Reserva Rápida",
@@ -77,13 +248,50 @@
     "subtitle": "Responde algunas preguntas y recibe tu presupuesto por email y WhatsApp."
   },
   "footer": {
-    "tagline": "Excursiones premium y traslados privados en la Riviera francesa.",
+    "tagline": "Conductor privado & excursiones premium en la Costa Azul desde 2009. Tu socio de confianza para descubrir la Riviera francesa.",
+    "ctaBand": "¿Listo para descubrir la Costa Azul? Reserva ahora.",
+    "ctaWrite": "Escribir",
+    "servicesTitle": "Nuestros Servicios",
+    "destinationsTitle": "Destinos",
+    "infoTitle": "Información",
     "services": "Servicios",
     "destinations": "Destinos",
     "legal": "Legal",
     "privacy": "Política de privacidad",
     "terms": "Términos y condiciones",
-    "rights": "Todos los derechos reservados."
+    "rights": "Todos los derechos reservados.",
+    "servicesList": [
+      "Traslado Aeropuerto Niza",
+      "Conductor Privado VTC",
+      "Excursiones Medio Día",
+      "Excursiones Día Completo",
+      "Transporte Grupos",
+      "Seminarios & Eventos",
+      "Puesta a Disposición"
+    ],
+    "destinationsList": [
+      "Mónaco & Monte-Carlo",
+      "Saint-Tropez",
+      "Cannes & La Croisette",
+      "Eze Village",
+      "Antibes & Cap d'Antibes",
+      "Grasse — Capital del Perfume",
+      "Gorges du Verdon"
+    ],
+    "infoLinks": [
+      { "label": "Sobre Riviora", "href": "#services" },
+      { "label": "Nuestra Flota", "href": "#flotte" },
+      { "label": "Tarifas", "href": "#tarifs" },
+      { "label": "Opiniones de clientes", "href": "#avis" },
+      { "label": "FAQ", "href": "#faq" },
+      { "label": "Aviso legal", "href": "/mentions-legales" },
+      { "label": "Política de privacidad", "href": "/confidentialite" },
+      { "label": "Términos y condiciones", "href": "/cgv" }
+    ],
+    "serviceZoneLabel": "Zona de servicio",
+    "serviceZone": "Niza · Mónaco · Cannes · Antibes · Menton · Grasse · Saint-Tropez · Costa Azul",
+    "copyright": "Riviora — Todos los derechos reservados. Conductor privado & excursiones Costa Azul.",
+    "licenseInfo": "Licencia VTC · Niza, Costa Azul, Francia"
   },
   "destPage": {
     "backToDestinations": "← Todos los destinos",

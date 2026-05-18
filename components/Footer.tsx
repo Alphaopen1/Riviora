@@ -1,29 +1,15 @@
 "use client";
 
 import { Phone, Mail, ArrowRight } from "lucide-react";
-
-const destinations = [
-  "Monaco & Monte-Carlo",
-  "Saint-Tropez",
-  "Cannes & La Croisette",
-  "Eze Village",
-  "Antibes & Cap d'Antibes",
-  "Grasse — Capitale du Parfum",
-  "Gorges du Verdon",
-];
-
-const services = [
-  "Transfert Aéroport Nice",
-  "Chauffeur Privé VTC",
-  "Excursions Demi-journée",
-  "Excursions Journée Complète",
-  "Transport Groupe",
-  "Séminaires & Événements",
-  "Mise à Disposition",
-];
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
   const year = new Date().getFullYear();
+
+  const servicesList = t.raw("servicesList") as string[];
+  const destinationsList = t.raw("destinationsList") as string[];
+  const infoLinks = t.raw("infoLinks") as Array<{ label: string; href: string }>;
 
   return (
     <footer className="bg-[#060F1E] text-white">
@@ -31,7 +17,7 @@ export default function Footer() {
       <div className="bg-[#C9A96E] py-5 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-[#0B1F3A] font-bold text-lg text-center md:text-left">
-            Prêt à découvrir la Côte d'Azur ? Réservez dès maintenant.
+            {t("ctaBand")}
           </div>
           <div className="flex gap-3">
             <a
@@ -45,7 +31,7 @@ export default function Footer() {
               href="mailto:contact@riviora.fr"
               className="border-2 border-[#0B1F3A] text-[#0B1F3A] font-bold px-6 py-3 text-sm uppercase tracking-widest hover:bg-[#0B1F3A] hover:text-white transition-all duration-300"
             >
-              Écrire
+              {t("ctaWrite")}
             </a>
           </div>
         </div>
@@ -59,8 +45,7 @@ export default function Footer() {
             RIVI<span className="text-[#C9A96E]">ORA</span>
           </div>
           <p className="text-white/50 text-sm leading-relaxed mb-6">
-            Chauffeur privé & excursions premium sur la Côte d'Azur depuis 2009. Votre partenaire
-            de confiance pour découvrir la Riviera française.
+            {t("tagline")}
           </p>
           <div className="space-y-3">
             <a
@@ -103,10 +88,10 @@ export default function Footer() {
         {/* Services */}
         <div>
           <h4 className="font-bold text-sm uppercase tracking-widest mb-5 text-white">
-            Nos Services
+            {t("servicesTitle")}
           </h4>
           <ul className="space-y-2.5">
-            {services.map((s) => (
+            {servicesList.map((s) => (
               <li key={s}>
                 <a
                   href="#services"
@@ -127,10 +112,10 @@ export default function Footer() {
         {/* Destinations */}
         <div>
           <h4 className="font-bold text-sm uppercase tracking-widest mb-5 text-white">
-            Destinations
+            {t("destinationsTitle")}
           </h4>
           <ul className="space-y-2.5">
-            {destinations.map((d) => (
+            {destinationsList.map((d) => (
               <li key={d}>
                 <a
                   href="#destinations"
@@ -151,19 +136,10 @@ export default function Footer() {
         {/* Legal + Info */}
         <div>
           <h4 className="font-bold text-sm uppercase tracking-widest mb-5 text-white">
-            Informations
+            {t("infoTitle")}
           </h4>
           <ul className="space-y-2.5">
-            {[
-              { label: "À propos de Riviora", href: "#services" },
-              { label: "Notre Flotte", href: "#flotte" },
-              { label: "Tarifs", href: "#tarifs" },
-              { label: "Avis clients", href: "#avis" },
-              { label: "FAQ", href: "#faq" },
-              { label: "Mentions légales", href: "/mentions-legales" },
-              { label: "Politique de confidentialité", href: "/confidentialite" },
-              { label: "CGV", href: "/cgv" },
-            ].map((l) => (
+            {infoLinks.map((l) => (
               <li key={l.label}>
                 <a
                   href={l.href}
@@ -177,9 +153,9 @@ export default function Footer() {
           </ul>
 
           <div className="mt-6 p-4 border border-white/10">
-            <div className="text-white/30 text-xs mb-1 uppercase tracking-widest">Zone de service</div>
+            <div className="text-white/30 text-xs mb-1 uppercase tracking-widest">{t("serviceZoneLabel")}</div>
             <div className="text-white/60 text-sm leading-relaxed">
-              Nice · Monaco · Cannes · Antibes · Menton · Grasse · Saint-Tropez · Côte d'Azur
+              {t("serviceZone")}
             </div>
           </div>
         </div>
@@ -189,10 +165,10 @@ export default function Footer() {
       <div className="border-t border-white/5 py-6 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-white/30 text-xs">
           <p>
-            © {year} Riviora — Tous droits réservés. Chauffeur privé & excursions Côte d'Azur.
+            © {year} {t("copyright")}
           </p>
           <p>
-            Licence VTC · Nice, Côte d'Azur, France
+            {t("licenseInfo")}
           </p>
         </div>
       </div>

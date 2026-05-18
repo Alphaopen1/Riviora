@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Phone, ArrowDown, Star } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const slides = [
   {
@@ -33,10 +34,13 @@ const slides = [
 const SLIDE_DURATION = 11000; // ms between slide changes
 
 export default function Hero() {
+  const t = useTranslations("hero");
   const [current, setCurrent] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const trustBadges = t.raw("trustBadges") as string[];
 
   const goTo = useCallback((index: number) => {
     setTransitioning(true);
@@ -115,7 +119,7 @@ export default function Hero() {
               ))}
             </div>
             <span className="text-white/75 text-sm font-medium tracking-widest uppercase">
-              4.9/5 · +500 avis Google · Depuis 2009
+              {t("ratingBadge")}
             </span>
           </div>
 
@@ -145,7 +149,7 @@ export default function Hero() {
               onClick={scrollToContact}
               className="bg-[#C9A96E] text-[#0B1F3A] font-bold px-10 py-5 text-sm uppercase tracking-widest hover:bg-[#E8C98A] transition-all duration-300 flex items-center justify-center gap-2"
             >
-              Réserver une excursion
+              {t("cta1")}
             </button>
             <a
               href="tel:+33787248691"
@@ -158,10 +162,10 @@ export default function Hero() {
 
           {/* Trust badges */}
           <div className="flex flex-wrap gap-8 text-white/55 text-sm">
-            {["Licence VTC officielle", "Chauffeurs bilingues FR/EN", "Disponible 24h/24", "Réponse en 2h"].map((t) => (
-              <div key={t} className="flex items-center gap-2">
+            {trustBadges.map((badge) => (
+              <div key={badge} className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#C9A96E] flex-shrink-0" />
-                {t}
+                {badge}
               </div>
             ))}
           </div>
@@ -185,7 +189,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <button
         onClick={scrollToServices}
-        aria-label="Découvrir les services"
+        aria-label={t("scrollLabel")}
         className="absolute bottom-12 right-8 z-20 flex flex-col items-center gap-2 text-white/40 hover:text-white/80 transition-colors group"
       >
         <ArrowDown size={20} className="animate-bounce" />

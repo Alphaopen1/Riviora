@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Clock, ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const destinations = [
   {
@@ -132,21 +133,22 @@ const destinations = [
 ];
 
 export default function Destinations() {
+  const t = useTranslations("destinations");
+
   return (
     <section id="destinations" className="bg-white py-24 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-[#C9A96E] font-semibold text-sm uppercase tracking-widest mb-3">
-            Destinations
+            {t("badge")}
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-5">
-            Explorez la{" "}
-            <span className="text-[#C9A96E]">Côte d'Azur</span>
+            {t("title")}{" "}
+            <span className="text-[#C9A96E]">{t("titleAccent")}</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            De Monaco aux Gorges du Verdon, découvrez les plus belles destinations de la
-            Riviera française avec votre chauffeur privé Riviora.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -211,7 +213,7 @@ export default function Destinations() {
                         href={`/destinations/${dest.slug}`}
                         className="flex items-center gap-1 text-white/70 text-xs font-semibold uppercase tracking-wide hover:text-[#C9A96E] transition-colors"
                       >
-                        Découvrir
+                        {t("discover")}
                       </Link>
                     )}
                     <a
@@ -222,7 +224,7 @@ export default function Destinations() {
                       }}
                       className="flex items-center gap-1 text-white text-xs font-semibold uppercase tracking-wide hover:text-[#C9A96E] transition-colors"
                     >
-                      Réserver <ArrowRight size={14} />
+                      {t("book")} <ArrowRight size={14} />
                     </a>
                   </div>
                 </div>
@@ -234,7 +236,7 @@ export default function Destinations() {
         {/* CTA */}
         <div className="text-center mt-12">
           <p className="text-gray-500 mb-4">
-            Vous avez une destination en tête qui ne figure pas ici ?
+            {t("customCta")}
           </p>
           <a
             href="#contact"
@@ -244,7 +246,7 @@ export default function Destinations() {
             }}
             className="inline-flex items-center gap-2 bg-[#0B1F3A] text-white font-bold px-10 py-4 text-sm uppercase tracking-widest hover:bg-[#C9A96E] hover:text-[#0B1F3A] transition-all duration-300"
           >
-            Créer mon itinéraire sur mesure <ArrowRight size={16} />
+            {t("customBtn")} <ArrowRight size={16} />
           </a>
         </div>
       </div>
