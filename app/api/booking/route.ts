@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 function sanitize(s: unknown): string {
   return String(s ?? "").replace(/[<>]/g, "").trim().slice(0, 500);
@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Email invalide." }, { status: 400 });
   }
 
-  // Build WhatsApp URL (always returned, regardless of email outcome)
+  // Build WhatsApp URL — always returned regardless of email outcome
   const waText = encodeURIComponent(
     `🌊 *Nouvelle réservation RIVIORA*\n\n` +
     `*Service :* ${service}\n` +
@@ -60,6 +60,18 @@ export async function POST(req: NextRequest) {
   const waUrl = `https://wa.me/33787248691?text=${waText}`;
 
   // Build email HTML
+  const rows = [
+    ["Service", service],
+    ["Nom", name],
+    ["Email", email],
+    ["Téléphone", phone || "Non renseigné"],
+    ["Date", date || "Non renseignée"],
+    ["Passagers", passengers || "Non renseigné"],
+    ["Départ", departure || "Non renseigné"],
+    ["Destination", destination || "Non renseignée"],
+    ["Message", message || "—"],
+  ];
+
   const htmlBody = `
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f8f6f1;padding:30px;">
       <div style="background:#0B1F3A;padding:20px 30px;margin-bottom:24px;">
@@ -67,17 +79,7 @@ export async function POST(req: NextRequest) {
         <p style="color:#fff;margin:4px 0 0;font-size:13px;">Nouvelle demande de réservation</p>
       </div>
       <table style="width:100%;border-collapse:collapse;background:#fff;">
-        ${[
-          ["Service", service],
-          ["Nom", name],
-          ["Email", email],
-          ["Téléphone", phone || "Non renseigné"],
-          ["Date", date || "Non renseignée"],
-          ["Passagers", passengers || "Non renseigné"],
-          ["Départ", departure || "Non renseigné"],
-          ["Destination", destination || "Non renseignée"],
-          ["Message", message || "—"],
-        ].map(([k, v]) => `
+        ${rows.map(([k, v]) => `
           <tr>
             <td style="padding:12px 16px;border-bottom:1px solid #f0ede8;font-weight:700;color:#0B1F3A;width:140px;font-size:13px;">${k}</td>
             <td style="padding:12px 16px;border-bottom:1px solid #f0ede8;color:#444;font-size:13px;">${v}</td>
@@ -90,40 +92,30 @@ export async function POST(req: NextRequest) {
       </div>
     </div>`;
 
-  // Try to send email — failure does NOT block the WhatsApp response
+  // Send email via Resend — failure does NOT block the WhatsApp response
   let emailSent = false;
   let emailError = "";
 
   try {
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST ?? "ssl0.ovh.net",
-      port: Number(process.env.SMTP_PORT ?? 465),
-      secure: true, // SSL on port 465
-      auth: {
-        user: process.env.SMTP_USER ?? "contact@riviora.fr",
-        pass: process.env.SMTP_PASS ?? "",
-      },
-      tls: {
-        rejectUnauthorized: false, // Required for OVH shared hosting SSL
-      },
-      connectionTimeout: 10_000,
-      greetingTimeout: 10_000,
-      socketTimeout: 15_000,
-    });
+    const resendKey = process.env.RESEND_API_KEY;
+    if (!resendKey) throw new Error("RESEND_API_KEY non configuré");
 
-    await transporter.sendMail({
-      from: `"Riviora Réservations" <contact@riviora.fr>`,
-      to: "contact@riviora.fr",
+    const resend = new Resend(resendKey);
+
+    const { error } = await resend.emails.send({
+      from: "Riviora Réservations <reservations@riviora.fr>",
+      to: ["contact@riviora.fr"],
       replyTo: email,
       subject: `[RIVIORA] ${service} · ${name}`,
       html: htmlBody,
     });
 
+    if (error) throw new Error(error.message);
     emailSent = true;
   } catch (err) {
     emailError = err instanceof Error ? err.message : String(err);
     console.error("[RIVIORA] Email send error:", emailError);
-    // We continue — WhatsApp link is always returned
+    // Continue — waUrl is always returned
   }
 
   return NextResponse.json({
