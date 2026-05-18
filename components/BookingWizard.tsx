@@ -95,6 +95,7 @@ export default function BookingWizard() {
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
   const [waUrl, setWaUrl] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
 
   const step = steps[currentStep];
   const progress = ((currentStep) / steps.length) * 100;
@@ -147,11 +148,18 @@ export default function BookingWizard() {
         }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Erreur");
-      setWaUrl(data.waUrl ?? "");
+      // Accept both success:true and HTTP 200 (email may have failed but waUrl is always returned)
+      if (!res.ok && !data.waUrl) throw new Error(data.error || "Erreur inattendue.");
+      const url = data.waUrl ?? "";
+      setWaUrl(url);
+      setEmailSent(data.emailSent ?? false);
       setDone(true);
+      // Auto-open WhatsApp immediately on success
+      if (url) {
+        setTimeout(() => window.open(url, "_blank"), 800);
+      }
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : "Erreur inattendue. Appelez-nous.");
+      setError(e instanceof Error ? e.message : "Erreur inattendue. Appelez-nous directement.");
     } finally {
       setLoading(false);
     }
@@ -164,9 +172,14 @@ export default function BookingWizard() {
           <Check size={32} className="text-[#C9A96E]" />
         </div>
         <h3 className="text-white text-2xl font-bold mb-3">Demande envoyée !</h3>
-        <p className="text-white/60 mb-8 max-w-sm">
-          Nous vous répondons dans les 2 heures. Pour une confirmation immédiate,
-          envoyez-nous votre demande par WhatsApp.
+        <p className="text-white/60 mb-2 max-w-sm">
+          WhatsApp s'est ouvert automatiquement avec votre demande.
+          {emailSent
+            ? " Un email de confirmation vous a également été envoyé."
+            : " Nous vous répondons dans les 2 heures."}
+        </p>
+        <p className="text-white/40 text-xs mb-8 max-w-sm">
+          Si WhatsApp ne s'est pas ouvert, cliquez sur le bouton ci-dessous.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           {waUrl && (
