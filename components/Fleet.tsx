@@ -8,7 +8,6 @@ const vehicles = [
     name: "Tesla Model 3",
     category: "Éco · Électrique · 1–3 passagers",
     image: "/images/tesla-model3.png",
-    isLocal: true,
     description:
       "Notre option écoresponsable. 100% électrique, silencieuse et confortable pour les courts trajets et transferts en solo ou en couple. Zéro émission, technologie Autopilot, intérieur minimaliste premium.",
     features: [
@@ -30,7 +29,6 @@ const vehicles = [
     name: "Mercedes Classe V",
     category: "Prestige · 4–8 passagers",
     image: "/images/classe-v.png",
-    isLocal: true,
     description:
       "La référence du transport privé sur la Côte d'Azur. Intérieur cuir noir, climatisation individuelle, vitres teintées, tablettes pliantes et connexion Wi-Fi. Idéale pour les familles et groupes VIP.",
     features: [
@@ -52,7 +50,6 @@ const vehicles = [
     name: "Mercedes Sprinter",
     category: "Grand Groupe · 9–21 passagers",
     image: "/images/sprinter.png",
-    isLocal: true,
     description:
       "La solution idéale pour les groupes, séminaires et événements. Configuration haut de gamme, sièges inclinables, espace bagages généreux et Wi-Fi haut débit pour tous les passagers.",
     features: [

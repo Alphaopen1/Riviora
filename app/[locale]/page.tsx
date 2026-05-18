@@ -1,4 +1,31 @@
 import Navbar from "@/components/Navbar";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Comment réserver un chauffeur privé ou une excursion avec Riviora ?",
+      acceptedAnswer: { "@type": "Answer", text: "La réservation se fait en 3 étapes : remplissez notre formulaire en ligne, par téléphone au +33 7 87 24 86 91, ou par email à contact@riviora.fr. Nous vous répondons en moins de 2 heures avec une confirmation et un devis définitif." },
+    },
+    {
+      "@type": "Question",
+      name: "Quels sont les modes de paiement acceptés ?",
+      acceptedAnswer: { "@type": "Answer", text: "Nous acceptons les virements bancaires, les cartes bancaires (Visa, Mastercard, Amex), et les espèces. Pour les entreprises, nous proposons la facturation différée." },
+    },
+    {
+      "@type": "Question",
+      name: "Y a-t-il des frais supplémentaires en cas de retard de vol ?",
+      acceptedAnswer: { "@type": "Answer", text: "Non. Nous suivons tous les vols en temps réel. En cas de retard, votre chauffeur adapte son heure d'arrivée sans aucun supplément. L'attente à l'aéroport est incluse jusqu'à 60 minutes après l'atterrissage." },
+    },
+    {
+      "@type": "Question",
+      name: "Quelle est votre politique d'annulation ?",
+      acceptedAnswer: { "@type": "Answer", text: "Annulation gratuite jusqu'à 48h avant la prestation. Entre 24h et 48h : 50% du montant retenu. Moins de 24h : 100% retenu." },
+    },
+  ],
+};
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Destinations from "@/components/Destinations";
@@ -10,6 +37,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import BookingWizard from "@/components/BookingWizard";
+import { getTranslations } from "next-intl/server";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -107,12 +135,18 @@ const localBusinessSchema = {
   ],
 };
 
-export default function Home() {
+export default async function Home() {
+  const t = await getTranslations("booking");
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Navbar />
       <main>
@@ -129,13 +163,13 @@ export default function Home() {
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-10">
               <p className="text-[#C9A96E] font-semibold text-sm uppercase tracking-widest mb-3">
-                Réservation Express
+                {t("badge")}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Réservez en <span className="text-[#C9A96E]">2 minutes</span>
+                {t("title")} <span className="text-[#C9A96E]">{t("titleAccent")}</span>
               </h2>
               <p className="text-white/55 text-base">
-                Répondez à quelques questions et recevez votre devis par email et WhatsApp.
+                {t("subtitle")}
               </p>
             </div>
             <BookingWizard />

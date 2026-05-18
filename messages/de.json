@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "destinations": "Reiseziele",
+    "services": "Leistungen",
+    "fleet": "Fahrzeuge",
+    "pricing": "Preise",
+    "reviews": "Bewertungen",
+    "contact": "Kontakt",
+    "book": "Jetzt buchen",
+    "allDestinations": "Alle Reiseziele →"
+  },
+  "hero": {
+    "badge": "Französische Riviera · Monaco · Europa",
+    "title1": "Ihr privater",
+    "title2": "Fahrer an der",
+    "title3": "Riviera",
+    "subtitle": "Maßgeschneiderte Ausflüge, Flughafentransfers und Fahrerservice. Monaco, Saint-Tropez, Cannes und die gesamte Côte d'Azur.",
+    "cta1": "Ausflug buchen",
+    "cta2": "Unsere Fahrzeuge entdecken"
+  },
+  "services": {
+    "badge": "Unsere Leistungen",
+    "title": "Alles für Ihren",
+    "titleAccent": "perfekten Aufenthalt",
+    "subtitle": "Vom Flughafen bis zu Ihren Lieblingszielen begleitet Sie Riviora mit Eleganz und Professionalität."
+  },
+  "destinations": {
+    "badge": "Reiseziele",
+    "title": "Entdecken Sie die",
+    "titleAccent": "Côte d'Azur",
+    "subtitle": "Von Monaco bis zu den Gorges du Verdon — erkunden Sie die schönsten Ziele der französischen Riviera mit Ihrem Riviora-Privatfahrer.",
+    "discover": "Entdecken",
+    "book": "Buchen",
+    "customCta": "Haben Sie ein Ziel im Sinn, das nicht aufgeführt ist?",
+    "customBtn": "Meine individuelle Route erstellen"
+  },
+  "fleet": {
+    "badge": "Unsere Fahrzeuge",
+    "title": "Fahrzeuge auf der Höhe",
+    "titleAccent": "Ihrer Reise",
+    "subtitle": "Drei Kategorien für jeden Bedarf, vom umweltfreundlichen Fahrzeug bis zur Großgruppe.",
+    "book": "Buchen",
+    "idealFor": "Ideal für"
+  },
+  "pricing": {
+    "badge": "Preise",
+    "title": "Transparente",
+    "titleAccent": "Preise",
+    "titleEnd": ", keine Überraschungen",
+    "transfers": "Transfers & Flughafen",
+    "excursions": "Ausflüge & Tagestouren",
+    "international": "Internationale Transfers",
+    "onRequest": "Auf Anfrage",
+    "popular": "BELIEBT",
+    "includes": "Inklusive",
+    "quoteBtn": "Angebot anfragen",
+    "note": "Preise für Mercedes V-Klasse bis 8 Pax. +30% Aufpreis für den 21-Sitzer Sprinter.",
+    "transferNote": "Alle Transfers beinhalten: personalisiertes Namensschild · 1 Stunde kostenlose Wartezeit · Echtzeit-Flugverfolgung"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Häufig gestellte",
+    "titleAccent": "Fragen",
+    "subtitle": "Alles, was Sie vor der Buchung Ihres Ausflugs oder Transfers wissen müssen.",
+    "notFound": "Keine Antwort auf Ihre Frage gefunden?"
+  },
+  "contact": {
+    "badge": "Kontakt",
+    "title": "Buchen Sie Ihren",
+    "titleAccent": "Ausflug",
+    "subtitle": "Kontaktieren Sie uns für ein individuelles Angebot. Antwort garantiert in weniger als 2 Stunden."
+  },
+  "booking": {
+    "badge": "Schnellbuchung",
+    "title": "In",
+    "titleAccent": "2 Minuten buchen",
+    "subtitle": "Beantworten Sie einige Fragen und erhalten Sie Ihr Angebot per E-Mail und WhatsApp."
+  },
+  "footer": {
+    "tagline": "Premium-Ausflüge & private Transfers an der französischen Riviera.",
+    "services": "Leistungen",
+    "destinations": "Reiseziele",
+    "legal": "Rechtliches",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "destPage": {
+    "backToDestinations": "← Alle Reiseziele",
+    "fromNice": "ab Nizza",
+    "highlights": "Nicht verpassen",
+    "tips": "Praktische Tipps",
+    "bestTime": "Beste Reisezeit",
+    "bookThis": "Diesen Ausflug buchen",
+    "whatsappBtn": "WhatsApp",
+    "callBtn": "Anrufen",
+    "relatedTitle": "Ähnliche Reiseziele"
+  }
+}

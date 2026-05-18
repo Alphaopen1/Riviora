@@ -5,35 +5,75 @@ import { Clock, MapPin, Phone, ArrowLeft, Check, Star } from "lucide-react";
 import { destinations, getDestinationBySlug } from "@/lib/destinations";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { getTranslations } from "next-intl/server";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateStaticParams() {
-  return destinations.map((d) => ({ slug: d.slug }));
+  const locales = ["fr", "en", "de", "es"];
+  return destinations.flatMap((d) =>
+    locales.map((locale) => ({ locale, slug: d.slug }))
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const dest = getDestinationBySlug(slug);
   if (!dest) return {};
+
+  const basePath = locale === "fr" ? "" : `/${locale}`;
+
   return {
     title: dest.metaTitle,
     description: dest.metaDescription,
     keywords: dest.keywords,
-    alternates: { canonical: `https://riviora.fr/destinations/${dest.slug}` },
+    alternates: {
+      canonical: `https://riviora.fr${basePath}/destinations/${dest.slug}`,
+      languages: {
+        fr: `https://riviora.fr/destinations/${dest.slug}`,
+        en: `https://riviora.fr/en/destinations/${dest.slug}`,
+        de: `https://riviora.fr/de/destinations/${dest.slug}`,
+        es: `https://riviora.fr/es/destinations/${dest.slug}`,
+        "x-default": `https://riviora.fr/destinations/${dest.slug}`,
+      },
+    },
     openGraph: {
       title: dest.metaTitle,
       description: dest.metaDescription,
-      url: `https://riviora.fr/destinations/${dest.slug}`,
+      url: `https://riviora.fr${basePath}/destinations/${dest.slug}`,
       images: [{ url: dest.heroImage, width: 1200, height: 630, alt: dest.name }],
     },
   };
+}
+
+/** Return 3 related destinations: same region if possible, otherwise nearest */
+function getRelatedDests(current: (typeof destinations)[0]) {
+  // Same region first
+  const sameRegion = destinations.filter(
+    (d) => d.slug !== current.slug && d.region === current.region
+  );
+  if (sameRegion.length >= 3) return sameRegion.slice(0, 3);
+
+  // Same country
+  const sameCountry = destinations.filter(
+    (d) => d.slug !== current.slug && d.country === current.country && !sameRegion.includes(d)
+  );
+  const combined = [...sameRegion, ...sameCountry];
+  if (combined.length >= 3) return combined.slice(0, 3);
+
+  // Fill with remaining
+  const rest = destinations.filter(
+    (d) => d.slug !== current.slug && !combined.includes(d)
+  );
+  return [...combined, ...rest].slice(0, 3);
 }
 
 export default async function DestinationPage({ params }: Props) {
   const { slug } = await params;
   const dest = getDestinationBySlug(slug);
   if (!dest) notFound();
+
+  const t = await getTranslations("destPage");
 
   const schema = {
     "@context": "https://schema.org",
@@ -79,7 +119,7 @@ export default async function DestinationPage({ params }: Props) {
     ],
   };
 
-  const relatedDests = destinations.filter((d) => d.slug !== dest.slug).slice(0, 3);
+  const relatedDests = getRelatedDests(dest);
 
   return (
     <>
@@ -102,10 +142,10 @@ export default async function DestinationPage({ params }: Props) {
 
           <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-4 sm:px-6 pb-12">
             <Link
-              href="/#destinations"
+              href="/destinations"
               className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm mb-6 transition-colors"
             >
-              <ArrowLeft size={14} /> Toutes les destinations
+              <ArrowLeft size={14} /> {t("backToDestinations")}
             </Link>
             <div className="flex items-center gap-3 mb-3">
               <span className="bg-[#C9A96E] text-[#0B1F3A] text-xs font-bold px-3 py-1 uppercase tracking-widest">
@@ -130,7 +170,7 @@ export default async function DestinationPage({ params }: Props) {
             <nav aria-label="Breadcrumb" className="text-white/40 text-sm flex items-center gap-2">
               <Link href="/" className="hover:text-white transition-colors">Riviora</Link>
               <span>/</span>
-              <Link href="/#destinations" className="hover:text-white transition-colors">Destinations</Link>
+              <Link href="/destinations" className="hover:text-white transition-colors">Destinations</Link>
               <span>/</span>
               <span className="text-[#C9A96E]">{dest.name}</span>
             </nav>
@@ -140,7 +180,7 @@ export default async function DestinationPage({ params }: Props) {
                 href="tel:+33787248691"
                 className="flex items-center gap-2 bg-[#C9A96E] text-[#0B1F3A] font-bold px-5 py-2.5 text-xs uppercase tracking-widest hover:bg-[#E8C98A] transition-all"
               >
-                <Phone size={14} /> Réserver
+                <Phone size={14} /> {t("bookThis")}
               </a>
             </div>
           </div>
@@ -153,7 +193,7 @@ export default async function DestinationPage({ params }: Props) {
             {/* Description */}
             <div>
               <h2 className="text-3xl font-bold text-[#0B1F3A] mb-6">
-                {dest.name} avec chauffeur privé depuis Nice
+                {dest.name} avec chauffeur privé {t("fromNice")}
               </h2>
               {dest.longDescription.split("\n\n").map((para, i) => (
                 <p key={i} className="text-gray-600 leading-relaxed mb-4 text-base">
@@ -166,7 +206,7 @@ export default async function DestinationPage({ params }: Props) {
             <div>
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-5 flex items-center gap-3">
                 <span className="w-8 h-0.5 bg-[#C9A96E]" />
-                Les incontournables
+                {t("highlights")}
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
                 {dest.highlights.map((h) => (
@@ -182,7 +222,7 @@ export default async function DestinationPage({ params }: Props) {
             <div>
               <h3 className="text-xl font-bold text-[#0B1F3A] mb-5 flex items-center gap-3">
                 <span className="w-8 h-0.5 bg-[#C9A96E]" />
-                Conseils Riviora
+                {t("tips")}
               </h3>
               <div className="space-y-3">
                 {dest.tips.map((tip, i) => (
@@ -197,7 +237,7 @@ export default async function DestinationPage({ params }: Props) {
             <div className="bg-[#0B1F3A] p-6 flex items-center gap-4">
               <Star size={24} className="text-[#C9A96E] flex-shrink-0" />
               <div>
-                <div className="text-white/50 text-xs uppercase tracking-widest mb-1">Meilleure période</div>
+                <div className="text-white/50 text-xs uppercase tracking-widest mb-1">{t("bestTime")}</div>
                 <div className="text-white font-semibold">{dest.bestTime}</div>
               </div>
             </div>
@@ -213,7 +253,7 @@ export default async function DestinationPage({ params }: Props) {
                   ))}
                   <span className="text-white/50 text-xs ml-1">4.9/5 · +500 avis</span>
                 </div>
-                <h3 className="text-white text-xl font-bold mb-1">Réservez votre excursion</h3>
+                <h3 className="text-white text-xl font-bold mb-1">{t("bookThis")}</h3>
                 <p className="text-[#C9A96E] font-bold text-lg mb-4">{dest.priceLabel}</p>
                 <p className="text-white/55 text-sm mb-6 leading-relaxed">
                   Devis gratuit en moins de 2 heures. Sans engagement.
@@ -226,7 +266,7 @@ export default async function DestinationPage({ params }: Props) {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-4 text-sm uppercase tracking-widest hover:bg-[#1ebe5d] transition-all w-full"
                   >
-                    WhatsApp
+                    {t("whatsappBtn")}
                   </a>
                   <a
                     href="tel:+33787248691"
@@ -239,7 +279,7 @@ export default async function DestinationPage({ params }: Props) {
                     href="/#contact"
                     className="flex items-center justify-center gap-2 border border-white/20 text-white font-semibold py-4 text-sm uppercase tracking-widest hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all w-full"
                   >
-                    Formulaire en ligne
+                    {t("callBtn")}
                   </a>
                 </div>
 
@@ -262,7 +302,7 @@ export default async function DestinationPage({ params }: Props) {
               {/* Info card */}
               <div className="mt-4 bg-[#F8F6F1] p-6 space-y-3">
                 <div>
-                  <div className="text-[#0B1F3A]/50 text-xs uppercase tracking-widest">Durée depuis Nice</div>
+                  <div className="text-[#0B1F3A]/50 text-xs uppercase tracking-widest">{t("fromNice")}</div>
                   <div className="text-[#0B1F3A] font-bold">{dest.duration}</div>
                 </div>
                 <div>
@@ -281,7 +321,7 @@ export default async function DestinationPage({ params }: Props) {
         {/* Related destinations */}
         <div className="bg-[#F8F6F1] py-16 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
-            <h3 className="text-2xl font-bold text-[#0B1F3A] mb-8">Autres destinations</h3>
+            <h3 className="text-2xl font-bold text-[#0B1F3A] mb-8">{t("relatedTitle")}</h3>
             <div className="grid sm:grid-cols-3 gap-5">
               {relatedDests.map((r) => (
                 <Link

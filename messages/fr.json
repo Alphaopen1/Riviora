@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "destinations": "Destinations",
+    "services": "Services",
+    "fleet": "Flotte",
+    "pricing": "Tarifs",
+    "reviews": "Avis",
+    "contact": "Contact",
+    "book": "Réserver",
+    "allDestinations": "Voir toutes les destinations →"
+  },
+  "hero": {
+    "badge": "Côte d'Azur · Riviera · Europe",
+    "title1": "Votre chauffeur",
+    "title2": "privé sur la",
+    "title3": "Riviera",
+    "subtitle": "Excursions sur mesure, transferts aéroport et mise à disposition avec chauffeur. Monaco, Saint-Tropez, Cannes et toute la Côte d'Azur.",
+    "cta1": "Réserver une excursion",
+    "cta2": "Découvrir la flotte"
+  },
+  "services": {
+    "badge": "Nos services",
+    "title": "Tout pour votre",
+    "titleAccent": "séjour parfait",
+    "subtitle": "De l'aéroport à vos destinations favorites, Riviora vous accompagne avec élégance et professionnalisme."
+  },
+  "destinations": {
+    "badge": "Destinations",
+    "title": "Explorez la",
+    "titleAccent": "Côte d'Azur",
+    "subtitle": "De Monaco aux Gorges du Verdon, découvrez les plus belles destinations de la Riviera française avec votre chauffeur privé Riviora.",
+    "discover": "Découvrir",
+    "book": "Réserver",
+    "customCta": "Vous avez une destination en tête qui ne figure pas ici ?",
+    "customBtn": "Créer mon itinéraire sur mesure"
+  },
+  "fleet": {
+    "badge": "Notre Flotte",
+    "title": "Des véhicules à la",
+    "titleAccent": "hauteur de votre voyage",
+    "subtitle": "Trois gammes pour tous vos besoins, de l'éco-responsable au grand groupe.",
+    "book": "Réserver",
+    "idealFor": "Idéal pour"
+  },
+  "pricing": {
+    "badge": "Tarifs",
+    "title": "Tarifs",
+    "titleAccent": "transparents",
+    "titleEnd": ", sans surprise",
+    "transfers": "Transferts & Aéroport",
+    "excursions": "Excursions & Journées",
+    "international": "Transferts Internationaux",
+    "onRequest": "Sur demande",
+    "popular": "POPULAIRE",
+    "includes": "Inclus",
+    "quoteBtn": "Demander un devis",
+    "note": "Tarifs Mercedes Classe V jusqu'à 8 pax. Majoration +30% pour le Sprinter 21 places.",
+    "transferNote": "Transferts inclus : accueil en pancarte personnalisée · 1h d'attente gratuite · Suivi vol temps réel"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Questions",
+    "titleAccent": "fréquentes",
+    "subtitle": "Tout ce que vous devez savoir avant de réserver votre excursion ou votre transfert.",
+    "notFound": "Vous n'avez pas trouvé la réponse à votre question ?"
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Réservez votre",
+    "titleAccent": "excursion",
+    "subtitle": "Contactez-nous pour un devis personnalisé. Réponse garantie en moins de 2 heures."
+  },
+  "booking": {
+    "badge": "Réservation Express",
+    "title": "Réservez en",
+    "titleAccent": "2 minutes",
+    "subtitle": "Répondez à quelques questions et recevez votre devis par email et WhatsApp."
+  },
+  "footer": {
+    "tagline": "Excursions premium & transferts privés sur la Riviera française.",
+    "services": "Services",
+    "destinations": "Destinations",
+    "legal": "Légal",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions générales",
+    "rights": "Tous droits réservés."
+  },
+  "destPage": {
+    "backToDestinations": "← Toutes les destinations",
+    "fromNice": "depuis Nice",
+    "highlights": "À ne pas manquer",
+    "tips": "Conseils pratiques",
+    "bestTime": "Meilleure période",
+    "bookThis": "Réserver cette excursion",
+    "whatsappBtn": "WhatsApp",
+    "callBtn": "Appeler",
+    "relatedTitle": "Destinations similaires"
+  }
+}

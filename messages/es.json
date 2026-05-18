@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "destinations": "Destinos",
+    "services": "Servicios",
+    "fleet": "Flota",
+    "pricing": "Tarifas",
+    "reviews": "Opiniones",
+    "contact": "Contacto",
+    "book": "Reservar",
+    "allDestinations": "Ver todos los destinos →"
+  },
+  "hero": {
+    "badge": "Riviera Francesa · Mónaco · Europa",
+    "title1": "Tu conductor",
+    "title2": "privado en la",
+    "title3": "Riviera",
+    "subtitle": "Excursiones a medida, traslados al aeropuerto y servicio con chófer. Mónaco, Saint-Tropez, Cannes y toda la Costa Azul.",
+    "cta1": "Reservar una excursión",
+    "cta2": "Descubrir nuestra flota"
+  },
+  "services": {
+    "badge": "Nuestros servicios",
+    "title": "Todo para tu",
+    "titleAccent": "estancia perfecta",
+    "subtitle": "Desde el aeropuerto hasta tus destinos favoritos, Riviora te acompaña con elegancia y profesionalidad."
+  },
+  "destinations": {
+    "badge": "Destinos",
+    "title": "Explora la",
+    "titleAccent": "Costa Azul",
+    "subtitle": "De Mónaco a las Gorges du Verdon, descubre los destinos más bellos de la Riviera francesa con tu conductor privado Riviora.",
+    "discover": "Descubrir",
+    "book": "Reservar",
+    "customCta": "¿Tienes un destino en mente que no aparece aquí?",
+    "customBtn": "Crear mi itinerario personalizado"
+  },
+  "fleet": {
+    "badge": "Nuestra Flota",
+    "title": "Vehículos a la",
+    "titleAccent": "altura de tu viaje",
+    "subtitle": "Tres gamas para todas tus necesidades, desde el ecológico hasta el grupo grande.",
+    "book": "Reservar",
+    "idealFor": "Ideal para"
+  },
+  "pricing": {
+    "badge": "Tarifas",
+    "title": "Precios",
+    "titleAccent": "transparentes",
+    "titleEnd": ", sin sorpresas",
+    "transfers": "Traslados & Aeropuerto",
+    "excursions": "Excursiones & Jornadas",
+    "international": "Traslados internacionales",
+    "onRequest": "A consultar",
+    "popular": "POPULAR",
+    "includes": "Incluye",
+    "quoteBtn": "Solicitar presupuesto",
+    "note": "Tarifas para Mercedes Clase V hasta 8 pax. +30% recargo para Sprinter 21 plazas.",
+    "transferNote": "Traslados incluyen: cartel personalizado · 1 hora de espera gratuita · seguimiento de vuelo en tiempo real"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Preguntas",
+    "titleAccent": "frecuentes",
+    "subtitle": "Todo lo que necesitas saber antes de reservar tu excursión o traslado.",
+    "notFound": "¿No encontraste la respuesta a tu pregunta?"
+  },
+  "contact": {
+    "badge": "Contacto",
+    "title": "Reserva tu",
+    "titleAccent": "excursión",
+    "subtitle": "Contáctanos para un presupuesto personalizado. Respuesta garantizada en menos de 2 horas."
+  },
+  "booking": {
+    "badge": "Reserva Rápida",
+    "title": "Reserva en",
+    "titleAccent": "2 minutos",
+    "subtitle": "Responde algunas preguntas y recibe tu presupuesto por email y WhatsApp."
+  },
+  "footer": {
+    "tagline": "Excursiones premium y traslados privados en la Riviera francesa.",
+    "services": "Servicios",
+    "destinations": "Destinos",
+    "legal": "Legal",
+    "privacy": "Política de privacidad",
+    "terms": "Términos y condiciones",
+    "rights": "Todos los derechos reservados."
+  },
+  "destPage": {
+    "backToDestinations": "← Todos los destinos",
+    "fromNice": "desde Niza",
+    "highlights": "No te lo pierdas",
+    "tips": "Consejos prácticos",
+    "bestTime": "Mejor época",
+    "bookThis": "Reservar esta excursión",
+    "whatsappBtn": "WhatsApp",
+    "callBtn": "Llamar",
+    "relatedTitle": "Destinos similares"
+  }
+}

@@ -4,18 +4,35 @@ import { Clock, Phone, ArrowRight } from "lucide-react";
 import { destinations } from "@/lib/destinations";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Toutes les destinations | Excursions Côte d'Azur & Europe | Riviora",
-  description:
-    "Explorez toutes nos destinations : Monaco, Saint-Tropez, Cannes, Eze, Gorges du Verdon, Milan, Genève, Courchevel… Excursions et transferts privés depuis Nice.",
-  alternates: { canonical: "https://riviora.fr/destinations" },
-  openGraph: {
-    title: "Destinations | Riviora — Excursions & VTC Côte d'Azur",
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const canonicalPath = locale === "fr" ? "/destinations" : `/${locale}/destinations`;
+
+  return {
+    title: "Toutes les destinations | Excursions Côte d'Azur & Europe | Riviora",
     description:
-      "13 destinations sur la Côte d'Azur et en Europe avec chauffeur privé. Monaco, Saint-Tropez, Milan, Genève, Courchevel…",
-  },
-};
+      "Explorez toutes nos destinations : Monaco, Saint-Tropez, Cannes, Eze, Gorges du Verdon, Milan, Genève, Courchevel… Excursions et transferts privés depuis Nice.",
+    alternates: {
+      canonical: `https://riviora.fr${canonicalPath}`,
+      languages: {
+        fr: "https://riviora.fr/destinations",
+        en: "https://riviora.fr/en/destinations",
+        de: "https://riviora.fr/de/destinations",
+        es: "https://riviora.fr/es/destinations",
+        "x-default": "https://riviora.fr/destinations",
+      },
+    },
+    openGraph: {
+      title: "Destinations | Riviora — Excursions & VTC Côte d'Azur",
+      description:
+        "13 destinations sur la Côte d'Azur et en Europe avec chauffeur privé. Monaco, Saint-Tropez, Milan, Genève, Courchevel…",
+    },
+  };
+}
 
 const local = destinations.filter((d) =>
   ["monaco", "saint-tropez", "cannes", "eze", "antibes", "grasse", "gorges-du-verdon"].includes(d.slug)
@@ -61,7 +78,9 @@ function DestCard({ dest }: { dest: (typeof destinations)[0] }) {
   );
 }
 
-export default function DestinationsPage() {
+export default async function DestinationsPage() {
+  const t = await getTranslations();
+
   return (
     <>
       <Navbar />
@@ -74,7 +93,7 @@ export default function DestinationsPage() {
             </p>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-5 leading-tight">
               Toutes nos{" "}
-              <span className="text-[#C9A96E]">destinations</span>
+              <span className="text-[#C9A96E]">{t("nav.destinations")}</span>
             </h1>
             <p className="text-white/60 text-xl max-w-2xl leading-relaxed mb-8">
               De Monaco aux Cinque Terre, de Saint-Tropez aux Alpes — explorez la Riviera et
@@ -138,7 +157,7 @@ export default function DestinationsPage() {
         <div className="bg-[#0B1F3A] py-16 px-4 sm:px-6 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold text-white mb-4">
-              Votre destination n'est pas listée ?
+              {t("destinations.customCta")}
             </h2>
             <p className="text-white/60 mb-8">
               Riviora s'adapte à toutes vos demandes. Contactez-nous pour un itinéraire
@@ -148,7 +167,7 @@ export default function DestinationsPage() {
               href="/#contact"
               className="inline-flex items-center gap-2 bg-[#C9A96E] text-[#0B1F3A] font-bold px-10 py-5 text-sm uppercase tracking-widest hover:bg-[#E8C98A] transition-all"
             >
-              Demander un devis personnalisé <ArrowRight size={16} />
+              {t("destinations.customBtn")} <ArrowRight size={16} />
             </Link>
           </div>
         </div>

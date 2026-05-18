@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "destinations": "Destinations",
+    "services": "Services",
+    "fleet": "Fleet",
+    "pricing": "Pricing",
+    "reviews": "Reviews",
+    "contact": "Contact",
+    "book": "Book Now",
+    "allDestinations": "View all destinations →"
+  },
+  "hero": {
+    "badge": "French Riviera · Monaco · Europe",
+    "title1": "Your private",
+    "title2": "driver on the",
+    "title3": "Riviera",
+    "subtitle": "Tailor-made excursions, airport transfers and chauffeur hire. Monaco, Saint-Tropez, Cannes and the entire French Riviera.",
+    "cta1": "Book an excursion",
+    "cta2": "Discover our fleet"
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Everything for your",
+    "titleAccent": "perfect stay",
+    "subtitle": "From the airport to your favourite destinations, Riviora accompanies you with elegance and professionalism."
+  },
+  "destinations": {
+    "badge": "Destinations",
+    "title": "Explore the",
+    "titleAccent": "French Riviera",
+    "subtitle": "From Monaco to the Gorges du Verdon, discover the most beautiful destinations on the French Riviera with your Riviora private driver.",
+    "discover": "Discover",
+    "book": "Book",
+    "customCta": "Have a destination in mind that's not listed?",
+    "customBtn": "Create my custom itinerary"
+  },
+  "fleet": {
+    "badge": "Our Fleet",
+    "title": "Vehicles that match",
+    "titleAccent": "your journey",
+    "subtitle": "Three ranges for every need, from eco-friendly to large groups.",
+    "book": "Book",
+    "idealFor": "Ideal for"
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "title": "Transparent",
+    "titleAccent": "pricing",
+    "titleEnd": ", no surprises",
+    "transfers": "Transfers & Airport",
+    "excursions": "Excursions & Day Trips",
+    "international": "International Transfers",
+    "onRequest": "On request",
+    "popular": "POPULAR",
+    "includes": "Includes",
+    "quoteBtn": "Request a quote",
+    "note": "Rates for Mercedes V-Class up to 8 pax. +30% surcharge for 21-seat Sprinter.",
+    "transferNote": "All transfers include: personalised name board · 1 hour free waiting · real-time flight tracking"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently asked",
+    "titleAccent": "questions",
+    "subtitle": "Everything you need to know before booking your excursion or transfer.",
+    "notFound": "Didn't find the answer to your question?"
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Book your",
+    "titleAccent": "excursion",
+    "subtitle": "Contact us for a personalised quote. Guaranteed reply within 2 hours."
+  },
+  "booking": {
+    "badge": "Quick Booking",
+    "title": "Book in",
+    "titleAccent": "2 minutes",
+    "subtitle": "Answer a few questions and receive your quote by email and WhatsApp."
+  },
+  "footer": {
+    "tagline": "Premium excursions & private transfers on the French Riviera.",
+    "services": "Services",
+    "destinations": "Destinations",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "rights": "All rights reserved."
+  },
+  "destPage": {
+    "backToDestinations": "← All destinations",
+    "fromNice": "from Nice",
+    "highlights": "Not to be missed",
+    "tips": "Practical tips",
+    "bestTime": "Best time to visit",
+    "bookThis": "Book this excursion",
+    "whatsappBtn": "WhatsApp",
+    "callBtn": "Call us",
+    "relatedTitle": "Similar destinations"
+  }
+}

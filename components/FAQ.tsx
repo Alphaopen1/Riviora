@@ -61,25 +61,8 @@ export default function FAQ() {
 
   const toggle = (i: number) => setOpen(open === i ? null : i);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: f.answer,
-      },
-    })),
-  };
-
   return (
     <section id="faq" className="bg-[#F8F6F1] py-24 px-4 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
