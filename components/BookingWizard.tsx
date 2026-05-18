@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight, ChevronLeft, Check, Phone, MessageCircle, Loader2 } from "lucide-react";
+import { ChevronRight, ChevronLeft, Check, Phone, MessageCircle, Mail } from "lucide-react";
 
 type Step = {
   id: string;
@@ -10,7 +10,6 @@ type Step = {
   options?: string[];
   placeholder?: string;
   required?: boolean;
-  skip?: string; // field name to skip if condition
 };
 
 const steps: Step[] = [
@@ -64,16 +63,9 @@ const steps: Step[] = [
   },
   {
     id: "phone",
-    question: "Votre numéro de téléphone (pour WhatsApp) ?",
+    question: "Votre numéro de téléphone ?",
     type: "tel",
     placeholder: "+33 6 00 00 00 00",
-    required: true,
-  },
-  {
-    id: "email",
-    question: "Votre adresse email pour la confirmation ?",
-    type: "email",
-    placeholder: "jean@exemple.fr",
     required: true,
   },
   {
@@ -87,18 +79,58 @@ const steps: Step[] = [
 
 type Answers = Record<string, string>;
 
+function buildUrls(answers: Answers): { waUrl: string; mailUrl: string } {
+  const s = answers.service     || "—";
+  const dest = answers.destination || "—";
+  const d = answers.date        || "—";
+  const pax = answers.passengers   || "—";
+  const dep = answers.departure    || "—";
+  const n = answers.name        || "—";
+  const tel = answers.phone       || "—";
+  const msg = answers.message     || "—";
+
+  // WhatsApp
+  const waText = encodeURIComponent(
+    `🌊 *Nouvelle réservation RIVIORA*\n\n` +
+    `*Service :* ${s}\n` +
+    `*Nom :* ${n}\n` +
+    `*Tél :* ${tel}\n` +
+    `*Date :* ${d}\n` +
+    `*Passagers :* ${pax}\n` +
+    `*Départ :* ${dep}\n` +
+    `*Destination :* ${dest}\n` +
+    `*Message :* ${msg}`
+  );
+  const waUrl = `https://wa.me/33787248691?text=${waText}`;
+
+  // Mailto
+  const subject = encodeURIComponent(`[RIVIORA] ${s} — ${n}`);
+  const body = encodeURIComponent(
+    `Bonjour,\n\nVoici ma demande de réservation :\n\n` +
+    `Service : ${s}\n` +
+    `Nom : ${n}\n` +
+    `Téléphone : ${tel}\n` +
+    `Date : ${d}\n` +
+    `Passagers : ${pax}\n` +
+    `Lieu de départ : ${dep}\n` +
+    `Destination : ${dest}\n` +
+    `Informations complémentaires : ${msg}\n\n` +
+    `Merci de me confirmer la disponibilité et le tarif.\n\nCordialement,\n${n}`
+  );
+  const mailUrl = `mailto:contact@riviora.fr?subject=${subject}&body=${body}`;
+
+  return { waUrl, mailUrl };
+}
+
 export default function BookingWizard() {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [currentValue, setCurrentValue] = useState("");
-  const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
-  const [error, setError] = useState("");
-  const [waUrl, setWaUrl] = useState("");
-  const [emailSent, setEmailSent] = useState(false);
+  const [urls, setUrls] = useState<{ waUrl: string; mailUrl: string } | null>(null);
 
   const step = steps[currentStep];
-  const progress = ((currentStep) / steps.length) * 100;
+  const progress = (currentStep / steps.length) * 100;
   const isLast = currentStep === steps.length - 1;
 
   const handleChoice = (val: string) => {
@@ -115,7 +147,9 @@ export default function BookingWizard() {
     const newAnswers = { ...answers, [step.id]: currentValue };
     setAnswers(newAnswers);
     if (isLast) {
-      submit(newAnswers);
+      const built = buildUrls(newAnswers);
+      setUrls(built);
+      setDone(true);
     } else {
       setCurrentStep(currentStep + 1);
       setCurrentValue(answers[steps[currentStep + 1]?.id] ?? "");
@@ -128,79 +162,43 @@ export default function BookingWizard() {
     setCurrentValue(answers[steps[currentStep - 1].id] ?? "");
   };
 
-  const submit = async (finalAnswers: Answers) => {
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch("/api/booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          service: finalAnswers.service,
-          name: finalAnswers.name,
-          email: finalAnswers.email,
-          phone: finalAnswers.phone,
-          date: finalAnswers.date,
-          passengers: finalAnswers.passengers,
-          departure: finalAnswers.departure,
-          destination: finalAnswers.destination,
-          message: finalAnswers.message,
-        }),
-      });
-      const data = await res.json();
-      // Accept both success:true and HTTP 200 (email may have failed but waUrl is always returned)
-      if (!res.ok && !data.waUrl) throw new Error(data.error || "Erreur inattendue.");
-      const url = data.waUrl ?? "";
-      setWaUrl(url);
-      setEmailSent(data.emailSent ?? false);
-      setDone(true);
-      // Auto-open WhatsApp immediately on success
-      if (url) {
-        setTimeout(() => window.open(url, "_blank"), 800);
-      }
-    } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : "Erreur inattendue. Appelez-nous directement.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (done) {
+  if (done && urls) {
     return (
       <div className="flex flex-col items-center text-center py-10 px-4">
         <div className="w-16 h-16 bg-[#C9A96E]/10 flex items-center justify-center mb-6">
           <Check size={32} className="text-[#C9A96E]" />
         </div>
-        <h3 className="text-white text-2xl font-bold mb-3">Demande envoyée !</h3>
-        <p className="text-white/60 mb-2 max-w-sm">
-          WhatsApp s'est ouvert automatiquement avec votre demande.
-          {emailSent
-            ? " Un email de confirmation vous a également été envoyé."
-            : " Nous vous répondons dans les 2 heures."}
+        <h3 className="text-white text-2xl font-bold mb-3">Votre demande est prête !</h3>
+        <p className="text-white/60 mb-8 max-w-sm text-sm leading-relaxed">
+          Choisissez comment envoyer votre demande à Riviora. Nous vous répondons en moins de 2 heures.
         </p>
-        <p className="text-white/40 text-xs mb-8 max-w-sm">
-          Si WhatsApp ne s'est pas ouvert, cliquez sur le bouton ci-dessous.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          {waUrl && (
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold px-8 py-4 text-sm uppercase tracking-widest hover:bg-[#1ebe5d] transition-all"
-            >
-              <MessageCircle size={18} />
-              Confirmer par WhatsApp
-            </a>
-          )}
+
+        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
           <a
-            href="tel:+33787248691"
-            className="flex items-center justify-center gap-2 border-2 border-white/20 text-white font-semibold px-8 py-4 text-sm uppercase tracking-widest hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all"
+            href={urls.waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold px-6 py-4 text-sm uppercase tracking-widest hover:bg-[#1ebe5d] transition-all flex-1"
           >
-            <Phone size={18} />
-            Appeler directement
+            <MessageCircle size={18} />
+            WhatsApp
+          </a>
+          <a
+            href={urls.mailUrl}
+            className="flex items-center justify-center gap-2 bg-[#C9A96E] text-[#0B1F3A] font-bold px-6 py-4 text-sm uppercase tracking-widest hover:bg-[#E8C98A] transition-all flex-1"
+          >
+            <Mail size={18} />
+            Email
           </a>
         </div>
+
+        <a
+          href="tel:+33787248691"
+          className="mt-5 flex items-center justify-center gap-2 border border-white/20 text-white/60 font-medium px-6 py-3 text-sm uppercase tracking-widest hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all"
+        >
+          <Phone size={16} />
+          Appeler directement
+        </a>
       </div>
     );
   }
@@ -268,10 +266,6 @@ export default function BookingWizard() {
         />
       )}
 
-      {error && (
-        <p className="text-red-400 text-sm mb-4">{error}</p>
-      )}
-
       {/* Navigation */}
       {step.type !== "choice" && (
         <div className="flex items-center gap-4">
@@ -285,13 +279,11 @@ export default function BookingWizard() {
           )}
           <button
             onClick={handleNext}
-            disabled={loading || (step.required && !currentValue.trim())}
+            disabled={step.required && !currentValue.trim()}
             className="flex items-center gap-2 bg-[#C9A96E] text-[#0B1F3A] font-bold px-8 py-4 text-sm uppercase tracking-widest hover:bg-[#E8C98A] transition-all disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
           >
-            {loading ? (
-              <><Loader2 size={16} className="animate-spin" /> Envoi…</>
-            ) : isLast ? (
-              <><Check size={16} /> Envoyer ma demande</>
+            {isLast ? (
+              <><Check size={16} /> Voir mes options</>
             ) : (
               <>Suivant <ChevronRight size={16} /></>
             )}
