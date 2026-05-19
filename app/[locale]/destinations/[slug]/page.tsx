@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Clock, MapPin, Phone, ArrowLeft, Check, Star } from "lucide-react";
 import { destinations, getDestinationBySlug } from "@/lib/destinations";
 import Navbar from "@/components/Navbar";
@@ -38,10 +39,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
+      type: "website",
+      siteName: "Riviora",
       title: dest.metaTitle,
       description: dest.metaDescription,
       url: `https://riviora.fr${basePath}/destinations/${dest.slug}`,
       images: [{ url: dest.heroImage, width: 1200, height: 630, alt: dest.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dest.metaTitle,
+      description: dest.metaDescription,
+      images: [dest.heroImage],
     },
   };
 }
@@ -131,11 +140,13 @@ export default async function DestinationPage({ params }: Props) {
       <main>
         {/* Hero */}
         <div className="relative h-[70vh] min-h-[500px] overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${dest.heroImage})` }}
-            role="img"
-            aria-label={dest.name}
+          <Image
+            src={dest.heroImage}
+            alt={dest.name}
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/90 via-[#0B1F3A]/40 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3A]/60 to-transparent" />
@@ -330,9 +341,13 @@ export default async function DestinationPage({ params }: Props) {
                   className="group relative overflow-hidden block"
                   style={{ height: "220px" }}
                 >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${r.heroImage})` }}
+                  <Image
+                    src={r.heroImage}
+                    alt={r.name}
+                    fill
+                    loading="lazy"
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 640px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/80 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">

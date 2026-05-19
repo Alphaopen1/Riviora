@@ -67,6 +67,8 @@ export default function Fleet() {
                     height={280}
                     className="object-contain w-full h-full p-4 transition-transform duration-700 group-hover:scale-105 drop-shadow-2xl"
                     quality={90}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 480px"
                   />
                   <div
                     className="absolute top-4 left-4 text-white text-xs font-bold px-3 py-1 uppercase tracking-widest"

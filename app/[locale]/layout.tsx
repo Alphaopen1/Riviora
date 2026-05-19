@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"], display: "swap" });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
 
 const locales = ["fr", "en", "de", "es"] as const;
 type Locale = (typeof locales)[number];
@@ -41,6 +41,12 @@ const metaByLocale: Record<Locale, { title: string; description: string; ogLocal
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0B1F3A",
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -98,10 +104,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

@@ -1,4 +1,16 @@
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import Destinations from "@/components/Destinations";
+import Fleet from "@/components/Fleet";
+import Pricing from "@/components/Pricing";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
+import BookingWizard from "@/components/BookingWizard";
+import { getTranslations } from "next-intl/server";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -26,19 +38,6 @@ const faqSchema = {
     },
   ],
 };
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Destinations from "@/components/Destinations";
-import Fleet from "@/components/Fleet";
-import Pricing from "@/components/Pricing";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
-import BookingWizard from "@/components/BookingWizard";
-import { getTranslations } from "next-intl/server";
-
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "TouristInformationCenter"],
@@ -48,7 +47,7 @@ const localBusinessSchema = {
   url: "https://riviora.fr",
   telephone: "+33787248691",
   email: "contact@riviora.fr",
-  logo: "https://riviora.fr/logo.png",
+  logo: "https://riviora.fr/og-image.jpg",
   image: "https://riviora.fr/og-image.jpg",
   priceRange: "€€€",
   currenciesAccepted: "EUR",
@@ -140,6 +139,13 @@ export default async function Home() {
 
   return (
     <>
+      {/* Preload LCP: first Hero slide poster (above-the-fold image) */}
+      <link
+        rel="preload"
+        as="image"
+        href="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=1920&q=80"
+        fetchPriority="high"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}

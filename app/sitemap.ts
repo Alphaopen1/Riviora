@@ -8,12 +8,21 @@ function localePath(locale: string, path: string) {
   return locale === "fr" ? `${baseUrl}${path}` : `${baseUrl}/${locale}${path}`;
 }
 
+function buildAlternates(path: string) {
+  return {
+    languages: Object.fromEntries(
+      locales.map((locale) => [locale, localePath(locale, path)])
+    ) as Record<string, string>,
+  };
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const homePages: MetadataRoute.Sitemap = locales.map((locale) => ({
     url: localePath(locale, "/"),
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: locale === "fr" ? 1 : 0.9,
+    alternates: buildAlternates("/"),
   }));
 
   const destListPages: MetadataRoute.Sitemap = locales.map((locale) => ({
@@ -21,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.9,
+    alternates: buildAlternates("/destinations"),
   }));
 
   const destPages: MetadataRoute.Sitemap = destinations.flatMap((d) =>
@@ -29,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.85,
+      alternates: buildAlternates(`/destinations/${d.slug}`),
     }))
   );
 

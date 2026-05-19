@@ -1,7 +1,18 @@
 "use client";
 
+import Link from "next/link";
 import { Phone, Mail, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+
+const destSlugs: Record<string, string> = {
+  "Monaco & Monte-Carlo": "monaco",
+  "Saint-Tropez": "saint-tropez",
+  "Cannes & La Croisette": "cannes",
+  "Eze Village": "eze",
+  "Antibes & Cap d'Antibes": "antibes",
+  "Grasse — Capitale du Parfum": "grasse",
+  "Gorges du Verdon": "gorges-du-verdon",
+};
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -115,21 +126,30 @@ export default function Footer() {
             {t("destinationsTitle")}
           </h4>
           <ul className="space-y-2.5">
-            {destinationsList.map((d) => (
-              <li key={d}>
-                <a
-                  href="#destinations"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector("#destinations")?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="text-white/50 hover:text-[#C9A96E] text-sm transition-colors flex items-center gap-1.5"
-                >
-                  <ArrowRight size={10} className="flex-shrink-0" />
-                  {d}
-                </a>
-              </li>
-            ))}
+            {destinationsList.map((d) => {
+              const slug = destSlugs[d];
+              return (
+                <li key={d}>
+                  {slug ? (
+                    <Link
+                      href={`/destinations/${slug}`}
+                      className="text-white/50 hover:text-[#C9A96E] text-sm transition-colors flex items-center gap-1.5"
+                    >
+                      <ArrowRight size={10} className="flex-shrink-0" />
+                      {d}
+                    </Link>
+                  ) : (
+                    <a
+                      href="/destinations"
+                      className="text-white/50 hover:text-[#C9A96E] text-sm transition-colors flex items-center gap-1.5"
+                    >
+                      <ArrowRight size={10} className="flex-shrink-0" />
+                      {d}
+                    </a>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
 

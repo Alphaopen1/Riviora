@@ -151,13 +151,12 @@ export default function Hero() {
             >
               {t("cta1")}
             </button>
-            <a
-              href="tel:+33787248691"
+            <button
+              onClick={() => document.querySelector("#flotte")?.scrollIntoView({ behavior: "smooth" })}
               className="border-2 border-white text-white font-semibold px-10 py-5 text-sm uppercase tracking-widest hover:bg-white hover:text-[#0B1F3A] transition-all duration-300 flex items-center justify-center gap-2"
             >
-              <Phone size={16} />
-              +33 7 87 24 86 91
-            </a>
+              {t("cta2")}
+            </button>
           </div>
 
           {/* Trust badges */}

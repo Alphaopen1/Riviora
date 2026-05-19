@@ -212,10 +212,11 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Service */}
                 <div>
-                  <label className="block text-white/60 text-xs uppercase tracking-widest mb-2">
+                  <label htmlFor="c-service" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
                     {t("formService")} *
                   </label>
                   <select
+                    id="c-service"
                     name="service"
                     value={form.service}
                     onChange={handleChange}
@@ -232,20 +233,22 @@ export default function Contact() {
                 {/* Name + Email */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-white/60 text-xs uppercase tracking-widest mb-2">
+                    <label htmlFor="c-name" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
                       {t("formName")} *
                     </label>
                     <input
+                      id="c-name"
                       type="text" name="name" value={form.name} onChange={handleChange}
                       required placeholder={t("formNamePlaceholder")}
                       className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="block text-white/60 text-xs uppercase tracking-widest mb-2">
+                    <label htmlFor="c-email" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
                       {t("formEmail")}
                     </label>
                     <input
+                      id="c-email"
                       type="email" name="email" value={form.email} onChange={handleChange}
                       placeholder={t("formEmailPlaceholder")}
                       className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
@@ -256,20 +259,22 @@ export default function Contact() {
                 {/* Phone + Passengers */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-white/60 text-xs uppercase tracking-widest mb-2">
+                    <label htmlFor="c-phone" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
                       {t("formPhone")}
                     </label>
                     <input
+                      id="c-phone"
                       type="tel" name="phone" value={form.phone} onChange={handleChange}
                       placeholder={t("formPhonePlaceholder")}
                       className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="block text-white/60 text-xs uppercase tracking-widest mb-2">
+                    <label htmlFor="c-passengers" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
                       {t("formPassengers")}
                     </label>
                     <input
+                      id="c-passengers"
                       type="number" name="passengers" value={form.passengers} onChange={handleChange}
                       min="1" max="21" placeholder="2"
                       className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
@@ -280,20 +285,22 @@ export default function Contact() {
                 {/* Date + Departure */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-white/60 text-xs uppercase tracking-widest mb-2">
+                    <label htmlFor="c-date" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
                       {t("formDate")} *
                     </label>
                     <input
+                      id="c-date"
                       type="date" name="date" value={form.date} onChange={handleChange}
                       required
                       className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm focus:outline-none focus:border-[#C9A96E] transition-colors [color-scheme:dark]"
                     />
                   </div>
                   <div>
-                    <label className="block text-white/60 text-xs uppercase tracking-widest mb-2">
+                    <label htmlFor="c-departure" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
                       {t("formDeparture")}
                     </label>
                     <input
+                      id="c-departure"
                       type="text" name="departure" value={form.departure} onChange={handleChange}
                       placeholder={t("formDeparturePlaceholder")}
                       className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
@@ -303,10 +310,11 @@ export default function Contact() {
 
                 {/* Destination */}
                 <div>
-                  <label className="block text-white/60 text-xs uppercase tracking-widest mb-2">
+                  <label htmlFor="c-destination" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
                     {t("formDestination")}
                   </label>
                   <input
+                    id="c-destination"
                     type="text" name="destination" value={form.destination} onChange={handleChange}
                     placeholder={t("formDestinationPlaceholder")}
                     className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
@@ -315,10 +323,11 @@ export default function Contact() {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-white/60 text-xs uppercase tracking-widest mb-2">
+                  <label htmlFor="c-message" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
                     {t("formMessage")}
                   </label>
                   <textarea
+                    id="c-message"
                     name="message" value={form.message} onChange={handleChange}
                     rows={4} placeholder={t("formMessagePlaceholder")}
                     className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors resize-none"
