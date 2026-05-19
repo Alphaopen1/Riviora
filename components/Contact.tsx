@@ -166,9 +166,6 @@ export default function Contact() {
           <div className="lg:col-span-3">
             {submitted && urls ? (
               <div className="bg-white/5 border border-[#C9A96E]/30 p-10 text-center h-full flex flex-col items-center justify-center gap-6">
-                <div className="w-16 h-16 bg-[#C9A96E]/10 flex items-center justify-center">
-                  <CheckCircle size={36} className="text-[#C9A96E]" />
-                </div>
                 <div>
                   <h3 className="text-white text-2xl font-bold mb-2">{t("readyTitle")}</h3>
                   <p className="text-white/60 mb-6">{t("readyMsg")}</p>
