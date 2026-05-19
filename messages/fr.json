@@ -237,9 +237,11 @@
     "submitBtn": "Envoyer ma demande de devis",
     "loading": "Envoi en cours…",
     "privacyNote": "Données sécurisées · Réponse garantie sous 2h · Sans engagement",
-    "successTitle": "Demande envoyée !",
-    "successText": "Nous vous répondons dans les 2 heures.",
-    "successImmediate": "Pour une réponse immédiate :"
+    "readyTitle": "Votre demande est prête !",
+    "readyMsg": "Choisissez comment envoyer votre demande à Riviora. Nous vous répondons en moins de 2 heures.",
+    "successImmediate": "Pour une réponse immédiate :",
+    "callDirect": "Appeler directement",
+    "editRequest": "Modifier ma demande"
   },
   "booking": {
     "badge": "Réservation Express",

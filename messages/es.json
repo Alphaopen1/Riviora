@@ -237,9 +237,11 @@
     "submitBtn": "Enviar mi solicitud de presupuesto",
     "loading": "Enviando…",
     "privacyNote": "Datos seguros · Respuesta garantizada en 2h · Sin compromiso",
-    "successTitle": "¡Solicitud enviada!",
-    "successText": "Le responderemos en las próximas 2 horas.",
-    "successImmediate": "Para una respuesta inmediata:"
+    "readyTitle": "¡Tu solicitud está lista!",
+    "readyMsg": "Elige cómo enviar tu solicitud a Riviora. Te responderemos en menos de 2 horas.",
+    "successImmediate": "Para una respuesta inmediata:",
+    "callDirect": "Llamar directamente",
+    "editRequest": "Modificar mi solicitud"
   },
   "booking": {
     "badge": "Reserva Rápida",

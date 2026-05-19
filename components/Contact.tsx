@@ -104,7 +104,7 @@ export default function Contact() {
           {/* Contact info */}
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <h3 className="text-white font-bold text-xl mb-6">{t("directTitle")}</h3>
+              <h3 className="text-white font-bold text-xl mb-6">{t("directContact")}</h3>
               <div className="space-y-6">
                 <a href="tel:+33787248691" className="flex items-start gap-4 group">
                   <div className="w-12 h-12 bg-[#C9A96E]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#C9A96E] transition-colors duration-300">
@@ -132,7 +132,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-white/40 text-xs uppercase tracking-widest mb-1">{t("availabilityLabel")}</div>
-                    <div className="text-white font-semibold">{t("availabilityValue")}</div>
+                    <div className="text-white font-semibold">{t("availability")}</div>
                     <div className="text-white/50 text-sm">{t("availabilitySub")}</div>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-white/40 text-xs uppercase tracking-widest mb-1">{t("zoneLabel")}</div>
-                    <div className="text-white font-semibold">{t("zoneValue")}</div>
+                    <div className="text-white font-semibold">{t("zone")}</div>
                     <div className="text-white/50 text-sm">{t("zoneSub")}</div>
                   </div>
                 </div>
@@ -170,8 +170,9 @@ export default function Contact() {
                   <CheckCircle size={36} className="text-[#C9A96E]" />
                 </div>
                 <div>
-                  <h3 className="text-white text-2xl font-bold mb-2">{t("successTitle")}</h3>
-                  <p className="text-white/60">{t("successMsg")}</p>
+                  <h3 className="text-white text-2xl font-bold mb-2">{t("readyTitle")}</h3>
+                  <p className="text-white/60 mb-6">{t("readyMsg")}</p>
+                  <p className="text-white/40 text-sm">{t("successImmediate")}</p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xs">
@@ -198,14 +199,14 @@ export default function Contact() {
                   className="flex items-center gap-2 text-white/40 hover:text-[#C9A96E] text-sm transition-colors"
                 >
                   <Phone size={14} />
-                  {t("successPhone")}
+                  {t("callDirect")}
                 </a>
 
                 <button
                   onClick={() => { setSubmitted(false); setUrls(null); }}
                   className="text-white/30 hover:text-white/60 text-xs underline transition-colors"
                 >
-                  Modifier ma demande
+                  {t("editRequest")}
                 </button>
               </div>
             ) : (
@@ -213,7 +214,7 @@ export default function Contact() {
                 {/* Service */}
                 <div>
                   <label htmlFor="c-service" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
-                    {t("formService")} *
+                    {t("serviceLabel")}
                   </label>
                   <select
                     id="c-service"
@@ -223,7 +224,7 @@ export default function Contact() {
                     required
                     className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm focus:outline-none focus:border-[#C9A96E] transition-colors appearance-none"
                   >
-                    <option value="" className="bg-[#0B1F3A]">{t("formServicePlaceholder")}</option>
+                    <option value="" className="bg-[#0B1F3A]">{t("servicePlaceholder")}</option>
                     {serviceOptions.map((s) => (
                       <option key={s} value={s} className="bg-[#0B1F3A]">{s}</option>
                     ))}
@@ -234,23 +235,23 @@ export default function Contact() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="c-name" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
-                      {t("formName")} *
+                      {t("nameLabel")}
                     </label>
                     <input
                       id="c-name"
                       type="text" name="name" value={form.name} onChange={handleChange}
-                      required placeholder={t("formNamePlaceholder")}
+                      required placeholder={t("namePlaceholder")}
                       className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
                     />
                   </div>
                   <div>
                     <label htmlFor="c-email" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
-                      {t("formEmail")}
+                      {t("emailFormLabel")}
                     </label>
                     <input
                       id="c-email"
                       type="email" name="email" value={form.email} onChange={handleChange}
-                      placeholder={t("formEmailPlaceholder")}
+                      placeholder={t("emailPlaceholder")}
                       className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
                     />
                   </div>
@@ -260,23 +261,23 @@ export default function Contact() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="c-phone" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
-                      {t("formPhone")}
+                      {t("phoneFormLabel")}
                     </label>
                     <input
                       id="c-phone"
                       type="tel" name="phone" value={form.phone} onChange={handleChange}
-                      placeholder={t("formPhonePlaceholder")}
+                      placeholder={t("phonePlaceholder")}
                       className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
                     />
                   </div>
                   <div>
                     <label htmlFor="c-passengers" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
-                      {t("formPassengers")}
+                      {t("passengersLabel")}
                     </label>
                     <input
                       id="c-passengers"
                       type="number" name="passengers" value={form.passengers} onChange={handleChange}
-                      min="1" max="21" placeholder="2"
+                      min="1" max="21" placeholder={t("passengersPlaceholder")}
                       className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
                     />
                   </div>
@@ -286,7 +287,7 @@ export default function Contact() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="c-date" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
-                      {t("formDate")} *
+                      {t("dateLabel")}
                     </label>
                     <input
                       id="c-date"
@@ -297,12 +298,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <label htmlFor="c-departure" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
-                      {t("formDeparture")}
+                      {t("departureLabel")}
                     </label>
                     <input
                       id="c-departure"
                       type="text" name="departure" value={form.departure} onChange={handleChange}
-                      placeholder={t("formDeparturePlaceholder")}
+                      placeholder={t("departurePlaceholder")}
                       className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
                     />
                   </div>
@@ -311,12 +312,12 @@ export default function Contact() {
                 {/* Destination */}
                 <div>
                   <label htmlFor="c-destination" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
-                    {t("formDestination")}
+                    {t("destinationLabel")}
                   </label>
                   <input
                     id="c-destination"
                     type="text" name="destination" value={form.destination} onChange={handleChange}
-                    placeholder={t("formDestinationPlaceholder")}
+                    placeholder={t("destinationPlaceholder")}
                     className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors"
                   />
                 </div>
@@ -324,12 +325,12 @@ export default function Contact() {
                 {/* Message */}
                 <div>
                   <label htmlFor="c-message" className="block text-white/60 text-xs uppercase tracking-widest mb-2">
-                    {t("formMessage")}
+                    {t("messageLabel")}
                   </label>
                   <textarea
                     id="c-message"
                     name="message" value={form.message} onChange={handleChange}
-                    rows={4} placeholder={t("formMessagePlaceholder")}
+                    rows={4} placeholder={t("messagePlaceholder")}
                     className="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 text-sm placeholder:text-white/30 focus:outline-none focus:border-[#C9A96E] transition-colors resize-none"
                   />
                 </div>
@@ -339,10 +340,10 @@ export default function Contact() {
                   type="submit"
                   className="w-full bg-[#C9A96E] text-[#0B1F3A] font-bold py-5 text-sm uppercase tracking-widest hover:bg-[#E8C98A] transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  {t("formSubmit")}
+                  {t("submitBtn")}
                 </button>
 
-                <p className="text-white/30 text-xs text-center">{t("formPrivacy")}</p>
+                <p className="text-white/30 text-xs text-center">{t("privacyNote")}</p>
               </form>
             )}
           </div>

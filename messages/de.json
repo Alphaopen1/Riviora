@@ -237,9 +237,11 @@
     "submitBtn": "Angebotsanfrage senden",
     "loading": "Wird gesendet…",
     "privacyNote": "Sichere Daten · Antwort garantiert innerhalb von 2h · Unverbindlich",
-    "successTitle": "Anfrage gesendet!",
-    "successText": "Wir antworten innerhalb von 2 Stunden.",
-    "successImmediate": "Für eine sofortige Antwort:"
+    "readyTitle": "Ihre Anfrage ist bereit!",
+    "readyMsg": "Wählen Sie, wie Sie Ihre Anfrage an Riviora senden möchten. Wir antworten innerhalb von 2 Stunden.",
+    "successImmediate": "Für eine sofortige Antwort:",
+    "callDirect": "Direkt anrufen",
+    "editRequest": "Meine Anfrage ändern"
   },
   "booking": {
     "badge": "Schnellbuchung",

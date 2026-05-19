@@ -237,9 +237,11 @@
     "submitBtn": "Send my quote request",
     "loading": "Sending…",
     "privacyNote": "Secure data · Reply guaranteed within 2h · No obligation",
-    "successTitle": "Request sent!",
-    "successText": "We will reply within 2 hours.",
-    "successImmediate": "For an immediate response:"
+    "readyTitle": "Your request is ready!",
+    "readyMsg": "Choose how to send your request to Riviora. We reply within 2 hours.",
+    "successImmediate": "For an immediate response:",
+    "callDirect": "Call directly",
+    "editRequest": "Modify my request"
   },
   "booking": {
     "badge": "Quick Booking",
