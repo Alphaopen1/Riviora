@@ -18,22 +18,22 @@ type Props = {
 const metaByLocale: Record<Locale, { title: string; description: string; ogLocale: string }> = {
   fr: {
     title: "Riviora | Excursions & VTC Privé sur la Côte d'Azur",
-    description: "Riviora : chauffeur privé et excursions premium sur la Côte d'Azur. Monaco, Saint-Tropez, Cannes, Nice. Transferts aéroport, journées découverte, itinéraires sur mesure. Réservation 24h/24.",
+    description: "Chauffeur privé & excursions premium sur la Côte d'Azur. Monaco, Saint-Tropez, Nice, Cannes. Transferts aéroport, journées sur mesure. Disponible 24h/24.",
     ogLocale: "fr_FR",
   },
   en: {
     title: "Riviora | Private Driver & Excursions on the French Riviera",
-    description: "Riviora: private chauffeur and premium excursions on the French Riviera. Monaco, Saint-Tropez, Cannes, Nice. Airport transfers, day tours, custom itineraries. 24/7 bookings.",
+    description: "Private chauffeur & premium excursions on the French Riviera. Monaco, Saint-Tropez, Nice, Cannes. Airport transfers, custom day tours. Available 24/7.",
     ogLocale: "en_GB",
   },
   de: {
     title: "Riviora | Privatfahrer & Ausflüge an der Côte d'Azur",
-    description: "Riviora: Privatfahrer und Premium-Ausflüge an der Côte d'Azur. Monaco, Saint-Tropez, Cannes, Nizza. Flughafentransfers, Tagestouren, individuelle Routen. Buchung 24/7.",
+    description: "Privatfahrer & Premium-Ausflüge an der Côte d'Azur. Monaco, Saint-Tropez, Nizza, Cannes. Flughafentransfers, individuelle Tagestouren. Buchung 24/7.",
     ogLocale: "de_DE",
   },
   es: {
     title: "Riviora | Conductor Privado & Excursiones en la Costa Azul",
-    description: "Riviora: chófer privado y excursiones premium en la Costa Azul. Mónaco, Saint-Tropez, Cannes, Niza. Traslados al aeropuerto, visitas guiadas, itinerarios a medida. Reservas 24h.",
+    description: "Chófer privado & excursiones premium en la Costa Azul. Mónaco, Saint-Tropez, Niza, Cannes. Traslados aeropuerto, itinerarios a medida. Disponible 24h.",
     ogLocale: "es_ES",
   },
 };
@@ -104,6 +104,15 @@ export default async function LocaleLayout({ children, params }: Props) {
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
+      <head>
+        {/* Preconnect — réduit la latence des ressources tierces (PageSpeed Mobile) */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        {/* DNS prefetch fallback pour navigateurs qui ne supportent pas preconnect */}
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+      </head>
       <body className="min-h-full flex flex-col antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}

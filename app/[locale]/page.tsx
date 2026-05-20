@@ -139,11 +139,13 @@ export default async function Home() {
 
   return (
     <>
-      {/* Preload LCP: first Hero slide poster (above-the-fold image) */}
+      {/* Preload LCP: first Hero slide poster — mobile (828px) + desktop (1920px) */}
       <link
         rel="preload"
         as="image"
-        href="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=1920&q=80"
+        href="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=828&q=75"
+        imageSrcSet="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=828&q=75 828w, https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=1920&q=80 1920w"
+        imageSizes="100vw"
         fetchPriority="high"
       />
       <script

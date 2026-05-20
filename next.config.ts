@@ -28,6 +28,12 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
+
+  // Réduit le bundle JS — tree-shake uniquement les icônes lucide utilisées
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
+
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
@@ -39,9 +45,38 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "videos.pexels.com" },
     ],
   },
+
   async headers() {
     return [
-      { source: "/(.*)", headers: securityHeaders },
+      {
+        source: "/(.*)",
+        headers: [
+          ...securityHeaders,
+          // Preconnect hints pour HTTP/2 — réduit la latence des ressources tierces
+          {
+            key: "Link",
+            value: [
+              "<https://fonts.googleapis.com>; rel=preconnect",
+              "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+              "<https://images.unsplash.com>; rel=preconnect",
+            ].join(", "),
+          },
+        ],
+      },
+      // Cache long (1 an, immutable) pour les assets statiques Next.js
+      {
+        source: "/_next/static/(.*)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      // Cache 30 jours pour les images locales
+      {
+        source: "/images/(.*)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" },
+        ],
+      },
     ];
   },
 };
