@@ -195,6 +195,7 @@ const localBusinessSchema = {
   sameAs: [
     "https://www.instagram.com/riviora",
     "https://www.facebook.com/riviora",
+    "https://www.reddit.com/user/Riviora_excursion/",
   ],
 };
 
@@ -237,6 +238,7 @@ const organizationSchema = {
   sameAs: [
     "https://www.instagram.com/riviora",
     "https://www.facebook.com/riviora",
+    "https://www.reddit.com/user/Riviora_excursion/",
   ],
   knowsAbout: [
     "Chauffeur privé VTC",

@@ -15,52 +15,52 @@
     "cta1": "Reservar una excursión",
     "cta2": "Descubrir nuestra flota",
     "trustBadges": [
-      "Licencia VTC oficial",
-      "Conductores bilingües FR/EN",
+      "Conductores-guías locales desde 2009",
+      "Itinerarios 100% personalizados",
       "Disponible 24/7",
-      "Respuesta en 2h"
+      "Respuesta garantizada en 2h"
     ],
     "scrollLabel": "Descubrir nuestros servicios"
   },
   "services": {
-    "badge": "Nuestros Servicios",
-    "title": "Servicio de excelencia en",
-    "titleAccent": "la Riviera",
-    "subtitle": "Desde 2009, Riviora acompaña a viajeros, familias y profesionales por toda la Costa Azul con vehículos premium y conductores certificados.",
+    "badge": "Su Riviera Privada",
+    "title": "La Costa Azul",
+    "titleAccent": "desde adentro",
+    "subtitle": "Desde 2009, nuestros conductores-guías locales le abren las puertas a una Riviera que las guías turísticas nunca muestran — pueblos secretos, carreteras de cornisa al amanecer, restaurantes auténticos lejos de las multitudes.",
     "statLabels": [
       "+500 opiniones en Google",
-      "Años de experiencia",
-      "Clientes satisfechos",
+      "Años de experiencia local",
+      "Clientes acompañados",
       "Disponibilidad"
     ],
     "mostRequested": "El más solicitado",
     "quoteBtn": "Solicitar presupuesto",
-    "ctaTitle": "¿Necesita un servicio a medida?",
-    "ctaSubtitle": "Respuesta garantizada en menos de 2 horas · Presupuesto gratuito y sin compromiso",
+    "ctaTitle": "¿Tiene un itinerario en mente? Cuéntenos.",
+    "ctaSubtitle": "Construimos su programa a medida y respondemos en menos de 2 horas.",
     "ctaCall": "Llamar ahora",
     "ctaEmail": "Enviar un email",
     "items": [
       {
         "title": "Traslados Privados",
         "subtitle": "Aeropuerto · Estación · Hotel",
-        "description": "Traslados desde/hacia el aeropuerto de Niza (NCE), Mónaco, Cannes. Recibimiento con cartel nominativo, ayuda con el equipaje, puntualidad garantizada.",
-        "features": ["Seguimiento de vuelo en tiempo real", "Recibimiento con cartel nominativo", "Sin recargo por equipaje"],
-        "from": "Desde 80€",
+        "description": "Su llegada a la Riviera comienza sin estrés. Recibimiento con cartel nominativo, seguimiento de vuelo en tiempo real, ayuda con el equipaje. Su conductor espera — incluso si su vuelo se retrasa.",
+        "features": ["Seguimiento de vuelo en tiempo real", "60 min de espera incluidos", "Sin recargo por equipaje"],
+        "from": "Desde 50€",
         "popular": false
       },
       {
         "title": "Excursiones Privadas",
         "subtitle": "Día completo · Medio día · A medida",
-        "description": "Mónaco, Saint-Tropez, Eze, las Gorges du Verdon, Moustiers-Sainte-Marie… Itinerarios completamente personalizados según sus deseos.",
-        "features": ["Itinerario a medida", "Conductor-guía bilingüe", "Paradas para fotos incluidas"],
+        "description": "La verdadera Riviera — la que los autobuses turísticos nunca alcanzan. Nuestros conductores-guías locales adaptan cada itinerario a sus deseos: paradas, ritmo, restaurantes, secretos de la región.",
+        "features": ["Itinerario ajustable en el momento", "Conductor-guía bilingüe", "Lugares fuera de las rutas turísticas"],
         "from": "Desde 350€/día",
         "popular": true
       },
       {
         "title": "Grupos & Eventos",
         "subtitle": "9 a 21 personas · Sprinter",
-        "description": "Seminarios de empresa, cumpleaños, despedidas de soltero/a, bodas. Nuestro Sprinter de 21 plazas cubre todos sus eventos grupales.",
-        "features": ["Hasta 21 pasajeros", "Presupuesto personalizado", "Coordinación de eventos"],
+        "description": "Seminarios, cumpleaños, bodas o despedidas de soltero — convertimos a su grupo en un recuerdo colectivo inolvidable en la costa más bella de Europa.",
+        "features": ["Hasta 21 pasajeros", "Programa co-diseñado", "Coordinación completa"],
         "from": "A consultar",
         "popular": false
       }
@@ -250,7 +250,7 @@
     "subtitle": "Responde algunas preguntas y recibe tu presupuesto por email y WhatsApp."
   },
   "footer": {
-    "tagline": "Conductor privado & excursiones premium en la Costa Azul desde 2009. Tu socio de confianza para descubrir la Riviera francesa.",
+    "tagline": "Desde 2009, te damos acceso a la verdadera Costa Azul — la que las guías turísticas nunca muestran. Tu Riviera Privada.",
     "ctaBand": "¿Listo para descubrir la Costa Azul? Reserva ahora.",
     "ctaWrite": "Escribir",
     "servicesTitle": "Nuestros Servicios",
