@@ -13,62 +13,22 @@ import MobileCTABar from "@/components/MobileCTABar";
 import BookingWizard from "@/components/BookingWizard";
 import { getTranslations } from "next-intl/server";
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
+type FaqItem = { question: string; answer: string };
+
+/** Build the FAQ schema dynamically from the current locale's FAQ items.
+ *  Google reads JSON-LD in the page's language, so this matches the visible content. */
+function buildFaqSchema(items: FaqItem[], inLanguage: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage,
+    mainEntity: items.map((item) => ({
       "@type": "Question",
-      name: "Comment réserver un chauffeur privé ou une excursion avec Riviora ?",
-      acceptedAnswer: { "@type": "Answer", text: "La réservation se fait via le formulaire en ligne sur riviora.fr, par téléphone au +33 7 87 24 86 91, ou par email à contact@riviora.fr. Riviora confirme la disponibilité et envoie un devis définitif en moins de 2 heures. Pour les urgences, l'appel direct est disponible 24h/24." },
-    },
-    {
-      "@type": "Question",
-      name: "Quels sont les modes de paiement acceptés ?",
-      acceptedAnswer: { "@type": "Answer", text: "Riviora accepte les virements bancaires, les cartes bancaires (Visa, Mastercard, Amex) et les espèces. Pour les entreprises et groupes, la facturation différée est disponible. Aucun acompte n'est requis pour les transferts standards ; 30 % pour les excursions d'une journée ou plus." },
-    },
-    {
-      "@type": "Question",
-      name: "Y a-t-il des frais supplémentaires en cas de retard de vol ?",
-      acceptedAnswer: { "@type": "Answer", text: "Non. Riviora suit tous les vols en temps réel grâce au numéro de vol fourni lors de la réservation. L'attente à l'aéroport de Nice est incluse jusqu'à 60 minutes après l'atterrissage, sans supplément. Au-delà, un tarif d'attente s'applique." },
-    },
-    {
-      "@type": "Question",
-      name: "Quelle est votre politique d'annulation ?",
-      acceptedAnswer: { "@type": "Answer", text: "Annulation gratuite jusqu'à 48 heures avant la prestation. Entre 24h et 48h : 50 % du montant retenu. Moins de 24h avant ou no-show : 100 % retenu. Les cas de force majeure (météo extrême, maladie avec justificatif) sont étudiés individuellement." },
-    },
-    {
-      "@type": "Question",
-      name: "Puis-je personnaliser l'itinéraire de mon excursion ?",
-      acceptedAnswer: { "@type": "Answer", text: "Oui, chaque excursion Riviora est entièrement personnalisable. Les clients indiquent leurs envies (gastronomie, culture, plages, shopping, photographie), contraintes horaires et niveau d'activité. Le chauffeur-guide adapte le programme en temps réel selon les souhaits, sans coût supplémentaire." },
-    },
-    {
-      "@type": "Question",
-      name: "Combien de passagers peuvent prendre place dans vos véhicules ?",
-      acceptedAnswer: { "@type": "Answer", text: "La Mercedes Classe V accueille confortablement jusqu'à 8 passagers avec leurs bagages. Pour les groupes de 9 à 21 personnes, Riviora dispose d'un Mercedes Sprinter aménagé. Pour les groupes plus importants, la coordination de plusieurs véhicules est possible sur devis." },
-    },
-    {
-      "@type": "Question",
-      name: "Vos chauffeurs parlent-ils anglais ?",
-      acceptedAnswer: { "@type": "Answer", text: "Oui, tous les chauffeurs Riviora sont bilingues français-anglais. Certains parlent également l'italien, l'espagnol ou l'arabe. La langue préférée du chauffeur peut être précisée lors de la réservation pour les groupes internationaux." },
-    },
-    {
-      "@type": "Question",
-      name: "Proposez-vous des excursions depuis Cannes, Monaco ou d'autres villes ?",
-      acceptedAnswer: { "@type": "Answer", text: "Oui, Riviora opère depuis toutes les grandes villes de la Côte d'Azur : Nice, Cannes, Monaco, Antibes, Menton, Saint-Raphaël. Le point de départ est indiqué lors de la réservation et le tarif est ajusté en conséquence." },
-    },
-    {
-      "@type": "Question",
-      name: "Riviora est-il disponible le soir, les week-ends et les jours fériés ?",
-      acceptedAnswer: { "@type": "Answer", text: "Oui, Riviora est disponible 24h/24, 7j/7, 365 jours par an, y compris les jours fériés et pendant les événements (Grand Prix de Monaco, Festival de Cannes). Une majoration de nuit de 20 % s'applique de 22h à 6h du matin." },
-    },
-    {
-      "@type": "Question",
-      name: "Est-il possible de louer un véhicule avec chauffeur pour une journée complète ?",
-      acceptedAnswer: { "@type": "Answer", text: "Oui, la mise à disposition journalière (8h) avec chauffeur est l'une des formules les plus demandées de Riviora. Elle permet de visiter plusieurs destinations à son rythme, sans contrainte d'horaire. Tarif à partir de 480€/jour pour la Mercedes Classe V." },
-    },
-  ],
-};
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+}
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "TravelAgency", "TouristInformationCenter"],
@@ -252,8 +212,22 @@ const organizationSchema = {
   ],
 };
 
-export default async function Home() {
+type HomeProps = { params: Promise<{ locale: string }> };
+
+const localeToBcp47: Record<string, string> = {
+  fr: "fr-FR",
+  en: "en-GB",
+  de: "de-DE",
+  es: "es-ES",
+};
+
+export default async function Home({ params }: HomeProps) {
+  const { locale } = await params;
   const t = await getTranslations("booking");
+  const tFaq = await getTranslations("faq");
+  const faqItems = tFaq.raw("items") as FaqItem[];
+  const inLanguage = localeToBcp47[locale] ?? "fr-FR";
+  const faqSchema = buildFaqSchema(faqItems, inLanguage);
 
   return (
     <>
@@ -268,11 +242,11 @@ export default async function Home() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({ ...organizationSchema, inLanguage }) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({ ...localBusinessSchema, inLanguage }) }}
       />
       <script
         type="application/ld+json"

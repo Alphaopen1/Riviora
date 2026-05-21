@@ -74,7 +74,14 @@
     "discover": "Discover",
     "book": "Book",
     "customCta": "Have a destination in mind that's not listed here?",
-    "customBtn": "Create my custom itinerary"
+    "customBtn": "Create my custom itinerary",
+    "allTitle": "All our",
+    "heroSubtitle": "From Monaco to the Cinque Terre, from Saint-Tropez to the Alps — explore the Riviera and Europe with your Riviora private chauffeur.",
+    "localTitle": "Côte d'Azur & Provence",
+    "localSubtitle": "The gems of the French Riviera, less than 2h from Nice",
+    "intlTitle": "International Transfers",
+    "intlSubtitle": "Italy, Switzerland, the Alps — on-request rates, quote in under 2h",
+    "ctaSubtitle": "Riviora adapts to all your requests. Contact us for a fully bespoke itinerary."
   },
   "fleet": {
     "badge": "Our Fleet",
@@ -304,6 +311,24 @@
     "bookThis": "Book this excursion",
     "whatsappBtn": "WhatsApp",
     "callBtn": "Call",
-    "relatedTitle": "Similar destinations"
+    "relatedTitle": "Similar destinations",
+    "withPrivateChauffeur": "with private chauffeur",
+    "quoteSubtitle": "Free quote in under 2 hours. No commitment.",
+    "trustResponse": "Reply guaranteed within 2h",
+    "trustCancellation": "Free cancellation within 48h",
+    "trustPickup": "Pick-up anywhere on the Côte d'Azur",
+    "regionLabel": "Region",
+    "vehicleLabel": "Recommended vehicle",
+    "vehicleValue": "Mercedes V-Class · 1–8 pax",
+    "reviewsBadge": "4.9/5 · +500 reviews",
+    "breadcrumb": "Destinations",
+    "whatsappPrefill": "Hi, I'd like to book a {dest} excursion from Nice with Riviora. Could you send me a quote?",
+    "schemaName": "Private {dest} excursion from Nice"
+  },
+  "whatsapp": {
+    "bubbleTitle": "Need a quick quote?",
+    "bubbleSubtitle": "Reply in under 2 minutes!",
+    "defaultMessage": "Hello Riviora! I'd like to learn more about your excursions and transfers on the French Riviera.",
+    "callBtn": "Call"
   }
 }

@@ -74,7 +74,14 @@
     "discover": "Découvrir",
     "book": "Réserver",
     "customCta": "Vous avez une destination en tête qui ne figure pas ici ?",
-    "customBtn": "Créer mon itinéraire sur mesure"
+    "customBtn": "Créer mon itinéraire sur mesure",
+    "allTitle": "Toutes nos",
+    "heroSubtitle": "De Monaco aux Cinque Terre, de Saint-Tropez aux Alpes — explorez la Riviera et l'Europe avec votre chauffeur privé Riviora.",
+    "localTitle": "Côte d'Azur & Provence",
+    "localSubtitle": "Les joyaux de la Riviera française, à moins de 2h de Nice",
+    "intlTitle": "Transferts Internationaux",
+    "intlSubtitle": "Italie, Suisse, Alpes — tarifs sur demande, devis en moins de 2h",
+    "ctaSubtitle": "Riviora s'adapte à toutes vos demandes. Contactez-nous pour un itinéraire entièrement sur mesure."
   },
   "fleet": {
     "badge": "Notre Flotte",
@@ -304,6 +311,24 @@
     "bookThis": "Réserver cette excursion",
     "whatsappBtn": "WhatsApp",
     "callBtn": "Appeler",
-    "relatedTitle": "Destinations similaires"
+    "relatedTitle": "Destinations similaires",
+    "withPrivateChauffeur": "avec chauffeur privé",
+    "quoteSubtitle": "Devis gratuit en moins de 2 heures. Sans engagement.",
+    "trustResponse": "Réponse garantie en moins de 2h",
+    "trustCancellation": "Annulation gratuite sous 48h",
+    "trustPickup": "Prise en charge partout sur la Côte d'Azur",
+    "regionLabel": "Région",
+    "vehicleLabel": "Véhicule recommandé",
+    "vehicleValue": "Mercedes Classe V · 1–8 pax",
+    "reviewsBadge": "4.9/5 · +500 avis",
+    "breadcrumb": "Destinations",
+    "whatsappPrefill": "Bonjour, je souhaite réserver une excursion {dest} depuis Nice avec Riviora. Pouvez-vous me faire un devis ?",
+    "schemaName": "Excursion privée {dest} depuis Nice"
+  },
+  "whatsapp": {
+    "bubbleTitle": "Besoin d'un devis rapide ?",
+    "bubbleSubtitle": "Réponse en moins de 2 minutes !",
+    "defaultMessage": "Bonjour Riviora ! Je souhaite obtenir des informations sur vos services d'excursions et transferts sur la Côte d'Azur.",
+    "callBtn": "Appeler"
   }
 }

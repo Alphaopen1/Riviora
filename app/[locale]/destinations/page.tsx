@@ -68,7 +68,7 @@ const intl = destinations.filter((d) =>
   ["milan", "portofino", "cinque-terre", "geneve", "courchevel", "megeve"].includes(d.slug)
 );
 
-function DestCard({ dest }: { dest: (typeof destinations)[0] }) {
+function DestCard({ dest, discover }: { dest: (typeof destinations)[0]; discover: string }) {
   return (
     <Link
       href={`/destinations/${dest.slug}`}
@@ -97,7 +97,7 @@ function DestCard({ dest }: { dest: (typeof destinations)[0] }) {
         <div className="flex items-center justify-between">
           <span className="text-[#C9A96E] font-bold text-sm">{dest.priceLabel}</span>
           <span className="flex items-center gap-1 text-white/60 text-xs font-semibold uppercase tracking-wide group-hover:text-[#C9A96E] transition-colors">
-            Découvrir <ArrowRight size={12} />
+            {discover} <ArrowRight size={12} />
           </span>
         </div>
       </div>
@@ -119,12 +119,11 @@ export default async function DestinationsPage() {
               Riviora
             </p>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-5 leading-tight">
-              Toutes nos{" "}
+              {t("destinations.allTitle")}{" "}
               <span className="text-[#C9A96E]">{t("nav.destinations")}</span>
             </h1>
             <p className="text-white/60 text-xl max-w-2xl leading-relaxed mb-8">
-              De Monaco aux Cinque Terre, de Saint-Tropez aux Alpes — explorez la Riviera et
-              l'Europe avec votre chauffeur privé Riviora.
+              {t("destinations.heroSubtitle")}
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -150,14 +149,14 @@ export default async function DestinationsPage() {
         <div className="bg-[#F8F6F1] py-16 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0B1F3A] mb-2">
-              Côte d'Azur & Provence
+              {t("destinations.localTitle")}
             </h2>
             <p className="text-gray-500 mb-8">
-              Les joyaux de la Riviera française, à moins de 2h de Nice
+              {t("destinations.localSubtitle")}
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {local.map((d) => (
-                <DestCard key={d.slug} dest={d} />
+                <DestCard key={d.slug} dest={d} discover={t("destinations.discover")} />
               ))}
             </div>
           </div>
@@ -167,14 +166,14 @@ export default async function DestinationsPage() {
         <div className="bg-white py-16 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0B1F3A] mb-2">
-              Transferts Internationaux
+              {t("destinations.intlTitle")}
             </h2>
             <p className="text-gray-500 mb-8">
-              Italie, Suisse, Alpes — tarifs sur demande, devis en moins de 2h
+              {t("destinations.intlSubtitle")}
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {intl.map((d) => (
-                <DestCard key={d.slug} dest={d} />
+                <DestCard key={d.slug} dest={d} discover={t("destinations.discover")} />
               ))}
             </div>
           </div>
@@ -187,8 +186,7 @@ export default async function DestinationsPage() {
               {t("destinations.customCta")}
             </h2>
             <p className="text-white/60 mb-8">
-              Riviora s'adapte à toutes vos demandes. Contactez-nous pour un itinéraire
-              entièrement sur mesure.
+              {t("destinations.ctaSubtitle")}
             </p>
             <Link
               href="/#contact"

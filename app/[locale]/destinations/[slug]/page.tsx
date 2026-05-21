@@ -79,19 +79,24 @@ function getRelatedDests(current: (typeof destinations)[0]) {
 }
 
 export default async function DestinationPage({ params }: Props) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const dest = getDestinationBySlug(slug);
   if (!dest) notFound();
 
   const t = await getTranslations("destPage");
+  const basePath = locale === "fr" ? "" : `/${locale}`;
+  const pageUrl = `https://riviora.fr${basePath}/destinations/${dest.slug}`;
+  const destListUrl = `https://riviora.fr${basePath}/destinations`;
+  const inLanguage = locale === "fr" ? "fr-FR" : locale === "en" ? "en-GB" : locale === "de" ? "de-DE" : "es-ES";
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "TouristDestination",
     name: dest.name,
     description: dest.description,
-    url: `https://riviora.fr/destinations/${dest.slug}`,
+    url: pageUrl,
     image: dest.heroImage,
+    inLanguage,
     geo: { "@type": "GeoCoordinates", latitude: dest.lat, longitude: dest.lng },
     touristType: ["Luxury traveler", "Family", "Group"],
     includesAttraction: dest.highlights.map((h) => ({
@@ -103,7 +108,8 @@ export default async function DestinationPage({ params }: Props) {
   const offerSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `Excursion privée ${dest.name} depuis Nice`,
+    name: t("schemaName", { dest: dest.name }),
+    inLanguage,
     provider: {
       "@type": "LocalBusiness",
       name: "Riviora",
@@ -123,9 +129,9 @@ export default async function DestinationPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Riviora", item: "https://riviora.fr" },
-      { "@type": "ListItem", position: 2, name: "Destinations", item: "https://riviora.fr/destinations" },
-      { "@type": "ListItem", position: 3, name: dest.name, item: `https://riviora.fr/destinations/${dest.slug}` },
+      { "@type": "ListItem", position: 1, name: "Riviora", item: `https://riviora.fr${basePath}/` },
+      { "@type": "ListItem", position: 2, name: t("breadcrumb"), item: destListUrl },
+      { "@type": "ListItem", position: 3, name: dest.name, item: pageUrl },
     ],
   };
 
@@ -182,7 +188,7 @@ export default async function DestinationPage({ params }: Props) {
             <nav aria-label="Breadcrumb" className="text-white/40 text-sm flex items-center gap-2">
               <Link href="/" className="hover:text-white transition-colors">Riviora</Link>
               <span>/</span>
-              <Link href="/destinations" className="hover:text-white transition-colors">Destinations</Link>
+              <Link href="/destinations" className="hover:text-white transition-colors">{t("breadcrumb")}</Link>
               <span>/</span>
               <span className="text-[#C9A96E]">{dest.name}</span>
             </nav>
@@ -205,7 +211,7 @@ export default async function DestinationPage({ params }: Props) {
             {/* Description */}
             <div>
               <h2 className="text-3xl font-bold text-[#0B1F3A] mb-6">
-                {dest.name} avec chauffeur privé {t("fromNice")}
+                {dest.name} {t("withPrivateChauffeur")} {t("fromNice")}
               </h2>
               {dest.longDescription.split("\n\n").map((para, i) => (
                 <p key={i} className="text-gray-600 leading-relaxed mb-4 text-base">
@@ -263,17 +269,17 @@ export default async function DestinationPage({ params }: Props) {
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={12} className="text-[#C9A96E] fill-[#C9A96E]" />
                   ))}
-                  <span className="text-white/50 text-xs ml-1">4.9/5 · +500 avis</span>
+                  <span className="text-white/50 text-xs ml-1">{t("reviewsBadge")}</span>
                 </div>
                 <h3 className="text-white text-xl font-bold mb-1">{t("bookThis")}</h3>
                 <p className="text-[#C9A96E] font-bold text-lg mb-4">{dest.priceLabel}</p>
                 <p className="text-white/55 text-sm mb-6 leading-relaxed">
-                  Devis gratuit en moins de 2 heures. Sans engagement.
+                  {t("quoteSubtitle")}
                 </p>
 
                 <div className="space-y-3">
                   <a
-                    href={`https://wa.me/33787248691?text=${encodeURIComponent(`Bonjour, je souhaite réserver une excursion ${dest.name} depuis Nice avec Riviora. Pouvez-vous me faire un devis ?`)}`}
+                    href={`https://wa.me/33787248691?text=${encodeURIComponent(t("whatsappPrefill", { dest: dest.name }))}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-4 text-sm uppercase tracking-widest hover:bg-[#1ebe5d] transition-all w-full"
@@ -298,15 +304,15 @@ export default async function DestinationPage({ params }: Props) {
                 <div className="mt-6 pt-5 border-t border-white/10 space-y-2">
                   <div className="flex items-center gap-2 text-white/50 text-xs">
                     <Clock size={12} className="text-[#C9A96E]" />
-                    Réponse garantie en moins de 2h
+                    {t("trustResponse")}
                   </div>
                   <div className="flex items-center gap-2 text-white/50 text-xs">
                     <Check size={12} className="text-[#C9A96E]" />
-                    Annulation gratuite sous 48h
+                    {t("trustCancellation")}
                   </div>
                   <div className="flex items-center gap-2 text-white/50 text-xs">
                     <MapPin size={12} className="text-[#C9A96E]" />
-                    Prise en charge partout sur la Côte d'Azur
+                    {t("trustPickup")}
                   </div>
                 </div>
               </div>
@@ -318,12 +324,12 @@ export default async function DestinationPage({ params }: Props) {
                   <div className="text-[#0B1F3A] font-bold">{dest.duration}</div>
                 </div>
                 <div>
-                  <div className="text-[#0B1F3A]/50 text-xs uppercase tracking-widest">Région</div>
+                  <div className="text-[#0B1F3A]/50 text-xs uppercase tracking-widest">{t("regionLabel")}</div>
                   <div className="text-[#0B1F3A] font-bold">{dest.region}</div>
                 </div>
                 <div>
-                  <div className="text-[#0B1F3A]/50 text-xs uppercase tracking-widest">Véhicule recommandé</div>
-                  <div className="text-[#0B1F3A] font-bold">Mercedes Classe V · 1–8 pax</div>
+                  <div className="text-[#0B1F3A]/50 text-xs uppercase tracking-widest">{t("vehicleLabel")}</div>
+                  <div className="text-[#0B1F3A] font-bold">{t("vehicleValue")}</div>
                 </div>
               </div>
             </div>

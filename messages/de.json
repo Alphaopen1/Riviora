@@ -74,7 +74,14 @@
     "discover": "Entdecken",
     "book": "Buchen",
     "customCta": "Haben Sie ein Ziel im Sinn, das nicht aufgeführt ist?",
-    "customBtn": "Meine individuelle Route erstellen"
+    "customBtn": "Meine individuelle Route erstellen",
+    "allTitle": "Alle unsere",
+    "heroSubtitle": "Von Monaco bis Cinque Terre, von Saint-Tropez bis zu den Alpen — erkunden Sie die Riviera und Europa mit Ihrem Riviora-Privatfahrer.",
+    "localTitle": "Côte d'Azur & Provence",
+    "localSubtitle": "Die Juwelen der französischen Riviera, weniger als 2h von Nizza",
+    "intlTitle": "Internationale Transfers",
+    "intlSubtitle": "Italien, Schweiz, Alpen — Preise auf Anfrage, Angebot in unter 2h",
+    "ctaSubtitle": "Riviora passt sich all Ihren Wünschen an. Kontaktieren Sie uns für ein maßgeschneidertes Reiseprogramm."
   },
   "fleet": {
     "badge": "Unsere Fahrzeuge",
@@ -304,6 +311,24 @@
     "bookThis": "Diesen Ausflug buchen",
     "whatsappBtn": "WhatsApp",
     "callBtn": "Anrufen",
-    "relatedTitle": "Ähnliche Reiseziele"
+    "relatedTitle": "Ähnliche Reiseziele",
+    "withPrivateChauffeur": "mit Privatfahrer",
+    "quoteSubtitle": "Kostenloses Angebot in unter 2 Stunden. Ohne Verpflichtung.",
+    "trustResponse": "Antwort garantiert in unter 2h",
+    "trustCancellation": "Kostenlose Stornierung bis 48h vorher",
+    "trustPickup": "Abholung überall an der Côte d'Azur",
+    "regionLabel": "Region",
+    "vehicleLabel": "Empfohlenes Fahrzeug",
+    "vehicleValue": "Mercedes V-Klasse · 1–8 Personen",
+    "reviewsBadge": "4.9/5 · +500 Bewertungen",
+    "breadcrumb": "Reiseziele",
+    "whatsappPrefill": "Hallo, ich möchte einen Ausflug nach {dest} ab Nizza mit Riviora buchen. Können Sie mir ein Angebot senden?",
+    "schemaName": "Privater Ausflug {dest} ab Nizza"
+  },
+  "whatsapp": {
+    "bubbleTitle": "Schnelles Angebot gewünscht?",
+    "bubbleSubtitle": "Antwort in unter 2 Minuten!",
+    "defaultMessage": "Hallo Riviora! Ich interessiere mich für Ihre Ausflüge und Transfers an der Côte d'Azur.",
+    "callBtn": "Anrufen"
   }
 }

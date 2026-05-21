@@ -74,7 +74,14 @@
     "discover": "Descubrir",
     "book": "Reservar",
     "customCta": "¿Tienes un destino en mente que no aparece aquí?",
-    "customBtn": "Crear mi itinerario personalizado"
+    "customBtn": "Crear mi itinerario personalizado",
+    "allTitle": "Todos nuestros",
+    "heroSubtitle": "De Mónaco a las Cinque Terre, de Saint-Tropez a los Alpes — explora la Riviera y Europa con tu conductor privado Riviora.",
+    "localTitle": "Costa Azul & Provenza",
+    "localSubtitle": "Las joyas de la Riviera francesa, a menos de 2h de Niza",
+    "intlTitle": "Traslados Internacionales",
+    "intlSubtitle": "Italia, Suiza, los Alpes — precios a petición, presupuesto en menos de 2h",
+    "ctaSubtitle": "Riviora se adapta a todas sus peticiones. Contáctenos para un itinerario totalmente personalizado."
   },
   "fleet": {
     "badge": "Nuestra Flota",
@@ -304,6 +311,24 @@
     "bookThis": "Reservar esta excursión",
     "whatsappBtn": "WhatsApp",
     "callBtn": "Llamar",
-    "relatedTitle": "Destinos similares"
+    "relatedTitle": "Destinos similares",
+    "withPrivateChauffeur": "con conductor privado",
+    "quoteSubtitle": "Presupuesto gratuito en menos de 2 horas. Sin compromiso.",
+    "trustResponse": "Respuesta garantizada en menos de 2h",
+    "trustCancellation": "Cancelación gratuita hasta 48h antes",
+    "trustPickup": "Recogida en cualquier punto de la Costa Azul",
+    "regionLabel": "Región",
+    "vehicleLabel": "Vehículo recomendado",
+    "vehicleValue": "Mercedes Clase V · 1–8 pax",
+    "reviewsBadge": "4.9/5 · +500 opiniones",
+    "breadcrumb": "Destinos",
+    "whatsappPrefill": "Hola, me gustaría reservar una excursión a {dest} desde Niza con Riviora. ¿Pueden enviarme un presupuesto?",
+    "schemaName": "Excursión privada {dest} desde Niza"
+  },
+  "whatsapp": {
+    "bubbleTitle": "¿Necesitas un presupuesto rápido?",
+    "bubbleSubtitle": "¡Respuesta en menos de 2 minutos!",
+    "defaultMessage": "¡Hola Riviora! Me gustaría obtener más información sobre sus excursiones y traslados en la Costa Azul.",
+    "callBtn": "Llamar"
   }
 }
