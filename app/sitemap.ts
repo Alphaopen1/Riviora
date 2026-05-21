@@ -10,9 +10,12 @@ function localePath(locale: string, path: string) {
 
 function buildAlternates(path: string) {
   return {
-    languages: Object.fromEntries(
-      locales.map((locale) => [locale, localePath(locale, path)])
-    ) as Record<string, string>,
+    languages: {
+      ...Object.fromEntries(
+        locales.map((locale) => [locale, localePath(locale, path)])
+      ),
+      "x-default": localePath("fr", path),
+    } as Record<string, string>,
   };
 }
 

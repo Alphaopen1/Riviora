@@ -56,7 +56,7 @@ export default function Footer() {
   const infoLinks = t.raw("infoLinks") as Array<{ label: string; href: string }>;
 
   return (
-    <footer className="bg-[#060F1E] text-white">
+    <footer className="bg-[#060F1E] text-white pb-16 md:pb-0">
       {/* CTA band */}
       <div className="bg-[#C9A96E] py-5 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">

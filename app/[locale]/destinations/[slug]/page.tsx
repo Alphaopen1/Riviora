@@ -6,6 +6,7 @@ import { Clock, MapPin, Phone, ArrowLeft, Check, Star } from "lucide-react";
 import { destinations, getDestinationBySlug } from "@/lib/destinations";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MobileCTABar from "@/components/MobileCTABar";
 import { getTranslations } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -287,7 +288,7 @@ export default async function DestinationPage({ params }: Props) {
                     +33 7 87 24 86 91
                   </a>
                   <a
-                    href="/#contact"
+                    href="tel:+33787248691"
                     className="flex items-center justify-center gap-2 border border-white/20 text-white font-semibold py-4 text-sm uppercase tracking-widest hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all w-full"
                   >
                     {t("callBtn")}
@@ -364,6 +365,7 @@ export default async function DestinationPage({ params }: Props) {
       </main>
 
       <Footer />
+      <MobileCTABar />
     </>
   );
 }

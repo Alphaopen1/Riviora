@@ -112,6 +112,11 @@ export default async function LocaleLayout({ children, params }: Props) {
         {/* DNS prefetch fallback pour navigateurs qui ne supportent pas preconnect */}
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        {/* Geo tags — Local SEO: Nice, Côte d'Azur */}
+        <meta name="geo.region" content="FR-06" />
+        <meta name="geo.placename" content="Nice, Côte d'Azur" />
+        <meta name="geo.position" content="43.7102;7.2620" />
+        <meta name="ICBM" content="43.7102, 7.2620" />
       </head>
       <body className="min-h-full flex flex-col antialiased">
         <NextIntlClientProvider messages={messages}>

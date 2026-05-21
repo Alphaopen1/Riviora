@@ -8,14 +8,42 @@ import { getTranslations } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string }> };
 
+const destMeta: Record<string, { title: string; description: string; ogTitle: string; ogDescription: string }> = {
+  fr: {
+    title: "Toutes les destinations | Excursions Côte d'Azur & Europe | Riviora",
+    description: "Explorez toutes nos destinations : Monaco, Saint-Tropez, Cannes, Eze, Gorges du Verdon, Milan, Genève, Courchevel… Excursions et transferts privés depuis Nice.",
+    ogTitle: "Destinations | Riviora — Excursions & VTC Côte d'Azur",
+    ogDescription: "13 destinations sur la Côte d'Azur et en Europe avec chauffeur privé. Monaco, Saint-Tropez, Milan, Genève, Courchevel…",
+  },
+  en: {
+    title: "All Destinations | French Riviera Excursions & Europe | Riviora",
+    description: "Explore all our destinations: Monaco, Saint-Tropez, Cannes, Eze, Gorges du Verdon, Milan, Geneva, Courchevel… Private excursions & transfers from Nice.",
+    ogTitle: "Destinations | Riviora — Private Excursions French Riviera",
+    ogDescription: "13 destinations on the French Riviera and in Europe with private chauffeur. Monaco, Saint-Tropez, Milan, Geneva, Courchevel…",
+  },
+  de: {
+    title: "Alle Reiseziele | Ausflüge Côte d'Azur & Europa | Riviora",
+    description: "Entdecken Sie alle unsere Reiseziele: Monaco, Saint-Tropez, Cannes, Eze, Gorges du Verdon, Mailand, Genf, Courchevel… Private Ausflüge & Transfers ab Nizza.",
+    ogTitle: "Reiseziele | Riviora — Private Ausflüge Côte d'Azur",
+    ogDescription: "13 Reiseziele an der Côte d'Azur und in Europa mit Privatfahrer. Monaco, Saint-Tropez, Mailand, Genf, Courchevel…",
+  },
+  es: {
+    title: "Todos los destinos | Excursiones Costa Azul & Europa | Riviora",
+    description: "Explora todos nuestros destinos: Mónaco, Saint-Tropez, Cannes, Eze, Gorges du Verdon, Milán, Ginebra, Courchevel… Excursiones privadas & traslados desde Niza.",
+    ogTitle: "Destinos | Riviora — Excursiones Privadas Costa Azul",
+    ogDescription: "13 destinos en la Costa Azul y Europa con conductor privado. Mónaco, Saint-Tropez, Milán, Ginebra, Courchevel…",
+  },
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const canonicalPath = locale === "fr" ? "/destinations" : `/${locale}/destinations`;
+  const l = (["fr", "en", "de", "es"].includes(locale) ? locale : "fr") as keyof typeof destMeta;
+  const meta = destMeta[l];
+  const canonicalPath = l === "fr" ? "/destinations" : `/${l}/destinations`;
 
   return {
-    title: "Toutes les destinations | Excursions Côte d'Azur & Europe | Riviora",
-    description:
-      "Explorez toutes nos destinations : Monaco, Saint-Tropez, Cannes, Eze, Gorges du Verdon, Milan, Genève, Courchevel… Excursions et transferts privés depuis Nice.",
+    title: meta.title,
+    description: meta.description,
     alternates: {
       canonical: `https://riviora.fr${canonicalPath}`,
       languages: {
@@ -27,9 +55,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: "Destinations | Riviora — Excursions & VTC Côte d'Azur",
-      description:
-        "13 destinations sur la Côte d'Azur et en Europe avec chauffeur privé. Monaco, Saint-Tropez, Milan, Genève, Courchevel…",
+      title: meta.ogTitle,
+      description: meta.ogDescription,
     },
   };
 }

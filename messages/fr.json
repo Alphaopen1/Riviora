@@ -15,52 +15,52 @@
     "cta1": "Réserver une excursion",
     "cta2": "Découvrir la flotte",
     "trustBadges": [
-      "Licence VTC officielle",
-      "Chauffeurs bilingues FR/EN",
-      "Disponible 24h/24",
-      "Réponse en 2h"
+      "Guide-chauffeurs locaux depuis 2009",
+      "Itinéraires 100% personnalisés",
+      "Disponible 24h/24 · 7j/7",
+      "Réponse garantie en 2h"
     ],
     "scrollLabel": "Découvrir les services"
   },
   "services": {
-    "badge": "Nos Prestations",
-    "title": "Service d'exception sur",
-    "titleAccent": "la Riviera",
-    "subtitle": "Depuis 2009, Riviora accompagne voyageurs, familles et professionnels sur toute la Côte d'Azur avec des véhicules premium et des chauffeurs certifiés.",
+    "badge": "Votre Riviera Privée",
+    "title": "La Côte d'Azur vue",
+    "titleAccent": "de l'intérieur",
+    "subtitle": "Depuis 2009, nos chauffeurs-guides locaux vous ouvrent les portes d'une Riviera que les guides touristiques ne montrent pas — villages secrets, routes de corniche au lever du soleil, tables authentiques loin des foules.",
     "statLabels": [
       "+500 avis Google",
-      "Années d'expérience",
-      "Clients satisfaits",
+      "Années d'expérience locale",
+      "Clients accompagnés",
       "Disponibilité"
     ],
     "mostRequested": "Le plus demandé",
     "quoteBtn": "Demander un devis",
-    "ctaTitle": "Besoin d'un service sur mesure ?",
-    "ctaSubtitle": "Réponse garantie en moins de 2 heures · Devis gratuit et sans engagement",
+    "ctaTitle": "Une idée d'itinéraire ? Parlez-nous-en.",
+    "ctaSubtitle": "Nous construisons votre programme sur mesure et vous répondons en moins de 2 heures.",
     "ctaCall": "Appeler maintenant",
     "ctaEmail": "Écrire par email",
     "items": [
       {
         "title": "Transferts Privés",
         "subtitle": "Aéroport · Gare · Hôtel",
-        "description": "Transferts depuis/vers l'aéroport de Nice (NCE), Monaco, Cannes. Accueil avec panneau nominatif, aide aux bagages, ponctualité garantie.",
-        "features": ["Suivi de vol en temps réel", "Panneau nominatif", "Aucun supplément bagage"],
-        "from": "À partir de 80€",
+        "description": "Votre arrivée sur la Riviera commence sans stress. Accueil nominatif, suivi de vol en temps réel, aide aux bagages. Votre chauffeur vous attend — même si votre vol est retardé.",
+        "features": ["Suivi de vol en temps réel", "60 min d'attente incluses", "Aucun supplément bagage"],
+        "from": "À partir de 50€",
         "popular": false
       },
       {
         "title": "Excursions Privées",
         "subtitle": "Journée · Demi-journée · Sur mesure",
-        "description": "Monaco, Saint-Tropez, Eze, les Gorges du Verdon, Moustiers-Sainte-Marie… Itinéraires entièrement personnalisés selon vos envies.",
-        "features": ["Itinéraire sur mesure", "Guide chauffeur bilingue", "Arrêts photos inclus"],
+        "description": "La vraie Riviera, celle que ne montrent pas les cars de tourisme. Nos chauffeurs-guides locaux adaptent chaque itinéraire à vos envies — arrêts, rythme, restaurants, secrets de la région.",
+        "features": ["Itinéraire modifiable à la demande", "Guide-chauffeur bilingue", "Spots hors des sentiers battus"],
         "from": "À partir de 350€/jour",
         "popular": true
       },
       {
         "title": "Groupes & Événements",
         "subtitle": "9 à 21 personnes · Sprinter",
-        "description": "Séminaires d'entreprise, anniversaires, enterrements de vie, mariages. Notre Sprinter 21 places couvre tous vos événements collectifs.",
-        "features": ["Jusqu'à 21 passagers", "Devis personnalisé", "Coordination événementielle"],
+        "description": "Séminaires, anniversaires, mariages ou enterrements de vie — nous transformons votre groupe en souvenir collectif inoubliable sur la plus belle côte d'Europe.",
+        "features": ["Jusqu'à 21 passagers", "Programme co-construit", "Coordination complète"],
         "from": "Sur devis",
         "popular": false
       }
@@ -250,7 +250,7 @@
     "subtitle": "Répondez à quelques questions et recevez votre devis par email et WhatsApp."
   },
   "footer": {
-    "tagline": "Chauffeur privé & excursions premium sur la Côte d'Azur depuis 2009. Votre partenaire de confiance pour découvrir la Riviera française.",
+    "tagline": "Depuis 2009, nous vous donnons accès à la vraie Côte d'Azur — celle que les guides touristiques ne montrent pas. Votre Riviera Privée.",
     "ctaBand": "Prêt à découvrir la Côte d'Azur ? Réservez dès maintenant.",
     "ctaWrite": "Écrire",
     "servicesTitle": "Nos Services",

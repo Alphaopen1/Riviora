@@ -15,52 +15,52 @@
     "cta1": "Ausflug buchen",
     "cta2": "Unsere Fahrzeuge entdecken",
     "trustBadges": [
-      "Offizielle VTC-Lizenz",
-      "Zweisprachige Fahrer FR/EN",
+      "Lokale Fahrer-Guides seit 2009",
+      "100% individuelle Reiserouten",
       "24/7 verfügbar",
-      "Antwort innerhalb von 2h"
+      "Antwort garantiert in 2h"
     ],
     "scrollLabel": "Unsere Leistungen entdecken"
   },
   "services": {
-    "badge": "Unsere Leistungen",
-    "title": "Erstklassiger Service an",
-    "titleAccent": "der Riviera",
-    "subtitle": "Seit 2009 begleitet Riviora Reisende, Familien und Geschäftsleute auf der gesamten Côte d'Azur mit Premium-Fahrzeugen und zertifizierten Fahrern.",
+    "badge": "Ihre Privatriviera",
+    "title": "Die Côte d'Azur",
+    "titleAccent": "von innen erleben",
+    "subtitle": "Seit 2009 öffnen unsere lokalen Fahrer-Guides Ihnen die Türen zu einer Riviera, die kein Reiseführer zeigt — versteckte Dörfer, Küstenstraßen bei Sonnenaufgang, authentische Restaurants abseits der Massen.",
     "statLabels": [
       "+500 Google-Bewertungen",
-      "Jahre Erfahrung",
-      "Zufriedene Kunden",
+      "Jahre lokale Expertise",
+      "Begleitete Kunden",
       "Verfügbarkeit"
     ],
     "mostRequested": "Am meisten gebucht",
     "quoteBtn": "Angebot anfragen",
-    "ctaTitle": "Benötigen Sie einen maßgeschneiderten Service?",
-    "ctaSubtitle": "Antwort garantiert in unter 2 Stunden · Kostenloses und unverbindliches Angebot",
+    "ctaTitle": "Eine Routenidee? Erzählen Sie uns davon.",
+    "ctaSubtitle": "Wir erstellen Ihr maßgeschneidertes Programm und antworten in unter 2 Stunden.",
     "ctaCall": "Jetzt anrufen",
     "ctaEmail": "E-Mail schreiben",
     "items": [
       {
         "title": "Private Transfers",
         "subtitle": "Flughafen · Bahnhof · Hotel",
-        "description": "Transfers zum/vom Flughafen Nizza (NCE), Monaco, Cannes. Begrüßung mit Namensschild, Gepäckhilfe, pünktliche Abholung garantiert.",
-        "features": ["Echtzeit-Flugverfolgung", "Namensschild-Empfang", "Kein Gepäckaufschlag"],
-        "from": "Ab 80€",
+        "description": "Ihre Ankunft an der Riviera beginnt stressfrei. Namensschild-Empfang, Echtzeit-Flugverfolgung, Gepäckhilfe. Ihr Fahrer wartet — auch wenn Ihr Flug verspätet ist.",
+        "features": ["Echtzeit-Flugverfolgung", "60 Min. Wartezeit inklusive", "Kein Gepäckaufschlag"],
+        "from": "Ab 50€",
         "popular": false
       },
       {
         "title": "Private Ausflüge",
         "subtitle": "Ganztag · Halbtag · Individuell",
-        "description": "Monaco, Saint-Tropez, Eze, die Gorges du Verdon, Moustiers-Sainte-Marie… Vollständig personalisierte Reiserouten nach Ihren Wünschen.",
-        "features": ["Maßgeschneiderte Route", "Zweisprachiger Fahrer-Guide", "Fotostopps inklusive"],
+        "description": "Die echte Riviera — die kein Reisebus je erreicht. Unsere lokalen Fahrer-Guides passen jede Route an Ihre Wünsche an: Stopps, Tempo, Restaurants, Insidertipps der Region.",
+        "features": ["Route jederzeit anpassbar", "Zweisprachiger Fahrer-Guide", "Geheimtipps abseits der Touristenpfade"],
         "from": "Ab 350€/Tag",
         "popular": true
       },
       {
         "title": "Gruppen & Veranstaltungen",
         "subtitle": "9 bis 21 Personen · Sprinter",
-        "description": "Firmenseminare, Geburtstage, Junggesellenabschiede, Hochzeiten. Unser 21-sitziger Sprinter deckt all Ihre Gruppenveranstaltungen ab.",
-        "features": ["Bis zu 21 Passagiere", "Individuelles Angebot", "Veranstaltungskoordination"],
+        "description": "Seminare, Geburtstage, Hochzeiten oder Junggesellenabschiede — wir verwandeln Ihre Gruppe in eine unvergessliche Erinnerung an der schönsten Küste Europas.",
+        "features": ["Bis zu 21 Passagiere", "Gemeinsam gestaltetes Programm", "Vollständige Koordination"],
         "from": "Auf Anfrage",
         "popular": false
       }
@@ -250,7 +250,7 @@
     "subtitle": "Beantworten Sie einige Fragen und erhalten Sie Ihr Angebot per E-Mail und WhatsApp."
   },
   "footer": {
-    "tagline": "Privatfahrer & Premium-Ausflüge an der Côte d'Azur seit 2009. Ihr vertrauenswürdiger Partner zum Entdecken der französischen Riviera.",
+    "tagline": "Seit 2009 geben wir Ihnen Zugang zur echten Côte d'Azur — die kein Reiseführer zeigt. Ihre Privatriviera.",
     "ctaBand": "Bereit, die Côte d'Azur zu entdecken? Jetzt buchen.",
     "ctaWrite": "E-Mail schreiben",
     "servicesTitle": "Unsere Leistungen",

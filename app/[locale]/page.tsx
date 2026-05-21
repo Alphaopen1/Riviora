@@ -9,6 +9,7 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
+import MobileCTABar from "@/components/MobileCTABar";
 import BookingWizard from "@/components/BookingWizard";
 import { getTranslations } from "next-intl/server";
 
@@ -309,6 +310,7 @@ export default async function Home() {
       </main>
       <Footer />
       <WhatsAppWidget />
+      <MobileCTABar />
     </>
   );
 }
