@@ -5,7 +5,13 @@ const locales = ["fr", "en", "de", "es"] as const;
 const baseUrl = "https://riviora.fr";
 
 function localePath(locale: string, path: string) {
-  return locale === "fr" ? `${baseUrl}${path}` : `${baseUrl}/${locale}${path}`;
+  // FR is the default locale (no prefix). For others, prefix with /{locale}.
+  // Special-case the root path "/" for non-FR locales: emit /{locale} WITHOUT
+  // a trailing slash — Next.js 308-redirects /en/ → /en, which Google Search
+  // Console then flags as "Page with redirect" and refuses to index.
+  if (locale === "fr") return `${baseUrl}${path}`;
+  if (path === "/") return `${baseUrl}/${locale}`;
+  return `${baseUrl}/${locale}${path}`;
 }
 
 function buildAlternates(path: string) {

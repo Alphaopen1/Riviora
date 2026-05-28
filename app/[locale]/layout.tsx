@@ -52,7 +52,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const l = (locales.includes(locale as Locale) ? locale : "fr") as Locale;
   const meta = metaByLocale[l];
-  const canonicalPath = l === "fr" ? "/" : `/${l}/`;
+  // Trailing slash ONLY on the FR root (Next.js redirects /en/ → /en otherwise,
+  // which makes GSC flag the URL as "Page with redirect" and refuse to index).
+  const canonicalPath = l === "fr" ? "/" : `/${l}`;
 
   return {
     title: { default: meta.title, template: "%s | Riviora" },
@@ -65,9 +67,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: `https://riviora.fr${canonicalPath}`,
       languages: {
         fr: "https://riviora.fr/",
-        en: "https://riviora.fr/en/",
-        de: "https://riviora.fr/de/",
-        es: "https://riviora.fr/es/",
+        en: "https://riviora.fr/en",
+        de: "https://riviora.fr/de",
+        es: "https://riviora.fr/es",
         "x-default": "https://riviora.fr/",
       },
     },
@@ -75,6 +77,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       locale: meta.ogLocale,
       url: `https://riviora.fr${canonicalPath}`,
+      // ↑ same canonical as alternates — no trailing slash on /en, /de, /es
       siteName: "Riviora",
       title: meta.title,
       description: meta.description,
