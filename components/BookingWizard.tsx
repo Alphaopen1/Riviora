@@ -6,10 +6,12 @@ import { ChevronRight, ChevronLeft, Check, Phone, MessageCircle, Mail } from "lu
 type Step = {
   id: string;
   question: string;
-  type: "choice" | "text" | "tel" | "email" | "date" | "number" | "textarea";
+  type: "choice" | "text" | "tel" | "email" | "date" | "time" | "number" | "textarea";
   options?: string[];
   placeholder?: string;
   required?: boolean;
+  /** Only show this step if the answer to `id` equals `value` */
+  dependsOn?: { id: string; value: string };
 };
 
 const steps: Step[] = [
@@ -39,6 +41,27 @@ const steps: Step[] = [
     question: "Quelle est la date de votre prestation ?",
     type: "date",
     required: true,
+  },
+  {
+    id: "tripType",
+    question: "Souhaitez-vous un aller simple ou un aller-retour ?",
+    type: "choice",
+    options: ["Aller simple", "Aller-retour"],
+    required: true,
+  },
+  {
+    id: "returnDate",
+    question: "Quelle est la date de votre retour ?",
+    type: "date",
+    required: true,
+    dependsOn: { id: "tripType", value: "Aller-retour" },
+  },
+  {
+    id: "time",
+    question: "À quelle heure souhaitez-vous être pris en charge ?",
+    type: "time",
+    placeholder: "HH:MM",
+    required: false,
   },
   {
     id: "passengers",
@@ -79,15 +102,37 @@ const steps: Step[] = [
 
 type Answers = Record<string, string>;
 
+/** Return the effective list of steps given current answers (filters conditional steps). */
+function getActiveSteps(answers: Answers): Step[] {
+  return steps.filter((s) => {
+    if (s.dependsOn) {
+      return answers[s.dependsOn.id] === s.dependsOn.value;
+    }
+    return true;
+  });
+}
+
+function formatTime(val: string): string {
+  if (!val) return "—";
+  // If it's HH:MM, format nicely
+  if (/^\d{2}:\d{2}$/.test(val)) {
+    return val + "h";
+  }
+  return val;
+}
+
 function buildUrls(answers: Answers): { waUrl: string; mailUrl: string } {
-  const s = answers.service     || "—";
+  const s = answers.service || "—";
   const dest = answers.destination || "—";
-  const d = answers.date        || "—";
-  const pax = answers.passengers   || "—";
-  const dep = answers.departure    || "—";
-  const n = answers.name        || "—";
-  const tel = answers.phone       || "—";
-  const msg = answers.message     || "—";
+  const d = answers.date || "—";
+  const trip = answers.tripType || "—";
+  const ret = answers.returnDate || "—";
+  const time = formatTime(answers.time);
+  const pax = answers.passengers || "—";
+  const dep = answers.departure || "—";
+  const n = answers.name || "—";
+  const tel = answers.phone || "—";
+  const msg = answers.message || "—";
 
   // WhatsApp
   const waText = encodeURIComponent(
@@ -96,6 +141,9 @@ function buildUrls(answers: Answers): { waUrl: string; mailUrl: string } {
     `*Nom :* ${n}\n` +
     `*Tél :* ${tel}\n` +
     `*Date :* ${d}\n` +
+    `*Type :* ${trip}\n` +
+    (ret !== "—" ? `*Retour :* ${ret}\n` : "") +
+    `*Heure :* ${time}\n` +
     `*Passagers :* ${pax}\n` +
     `*Départ :* ${dep}\n` +
     `*Destination :* ${dest}\n` +
@@ -111,6 +159,9 @@ function buildUrls(answers: Answers): { waUrl: string; mailUrl: string } {
     `Nom : ${n}\n` +
     `Téléphone : ${tel}\n` +
     `Date : ${d}\n` +
+    `Type de trajet : ${trip}\n` +
+    (ret !== "—" ? `Date de retour : ${ret}\n` : "") +
+    `Heure de prise en charge : ${time}\n` +
     `Passagers : ${pax}\n` +
     `Lieu de départ : ${dep}\n` +
     `Destination : ${dest}\n` +
@@ -123,22 +174,32 @@ function buildUrls(answers: Answers): { waUrl: string; mailUrl: string } {
 }
 
 export default function BookingWizard() {
-  const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [currentValue, setCurrentValue] = useState("");
   const [done, setDone] = useState(false);
   const [urls, setUrls] = useState<{ waUrl: string; mailUrl: string } | null>(null);
 
-  const step = steps[currentStep];
-  const progress = (currentStep / steps.length) * 100;
-  const isLast = currentStep === steps.length - 1;
+  const activeSteps = getActiveSteps(answers);
+  const maxVisibleIdx = activeSteps.length - 1;
+
+  // Determine current visible step index
+  const [visibleIdx, setVisibleIdx] = useState(0);
+
+  const step = activeSteps[visibleIdx];
+  const isLast = visibleIdx === maxVisibleIdx;
+  const totalVisible = activeSteps.length;
+  const progress = ((visibleIdx) / totalVisible) * 100;
 
   const handleChoice = (val: string) => {
     const newAnswers = { ...answers, [step.id]: val };
     setAnswers(newAnswers);
-    if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
-      setCurrentValue("");
+
+    // Compute next visible index considering conditional steps
+    const nextActive = getActiveSteps(newAnswers);
+    const nextIdx = Math.min(visibleIdx + 1, nextActive.length - 1);
+    if (nextIdx > visibleIdx) {
+      setVisibleIdx(nextIdx);
+      setCurrentValue(newAnswers[nextActive[nextIdx]?.id] ?? "");
     }
   };
 
@@ -146,20 +207,33 @@ export default function BookingWizard() {
     if (step.required && !currentValue.trim()) return;
     const newAnswers = { ...answers, [step.id]: currentValue };
     setAnswers(newAnswers);
+
     if (isLast) {
       const built = buildUrls(newAnswers);
       setUrls(built);
       setDone(true);
     } else {
-      setCurrentStep(currentStep + 1);
-      setCurrentValue(answers[steps[currentStep + 1]?.id] ?? "");
+      // Compute next visible index
+      const nextActive = getActiveSteps(newAnswers);
+      const nextIdx = Math.min(visibleIdx + 1, nextActive.length - 1);
+      setVisibleIdx(nextIdx);
+      setCurrentValue(newAnswers[nextActive[nextIdx]?.id] ?? "");
     }
   };
 
   const handleBack = () => {
-    if (currentStep === 0) return;
-    setCurrentStep(currentStep - 1);
-    setCurrentValue(answers[steps[currentStep - 1].id] ?? "");
+    if (visibleIdx === 0) return;
+
+    // Work backwards through answers to find the previous visible step
+    // Remove the current step's answer when going back
+    const newAnswers = { ...answers };
+    delete newAnswers[step.id];
+    setAnswers(newAnswers);
+
+    const prevActive = getActiveSteps(newAnswers);
+    const prevIdx = Math.max(0, visibleIdx - 1);
+    setVisibleIdx(prevIdx);
+    setCurrentValue(newAnswers[prevActive[prevIdx]?.id] ?? "");
   };
 
   if (done && urls) {
@@ -193,7 +267,7 @@ export default function BookingWizard() {
         </div>
 
         <a
-          href="tel:+33787248691"
+          href="tel:+337****8691"
           className="mt-5 flex items-center justify-center gap-2 border border-white/20 text-white/60 font-medium px-6 py-3 text-sm uppercase tracking-widest hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all"
         >
           <Phone size={16} />
@@ -202,6 +276,8 @@ export default function BookingWizard() {
       </div>
     );
   }
+
+  if (!step) return null;
 
   return (
     <div className="relative">
@@ -216,7 +292,7 @@ export default function BookingWizard() {
       {/* Step counter */}
       <div className="flex items-center justify-between mb-6">
         <span className="text-white/40 text-xs uppercase tracking-widest">
-          Étape {currentStep + 1} / {steps.length}
+          Étape {visibleIdx + 1} / {totalVisible}
         </span>
         <span className="text-[#C9A96E] text-xs font-semibold uppercase tracking-widest">
           Devis gratuit
@@ -269,7 +345,7 @@ export default function BookingWizard() {
       {/* Navigation */}
       {step.type !== "choice" && (
         <div className="flex items-center gap-4">
-          {currentStep > 0 && (
+          {visibleIdx > 0 && (
             <button
               onClick={handleBack}
               className="flex items-center gap-1 text-white/40 hover:text-white text-sm transition-colors"
@@ -292,7 +368,7 @@ export default function BookingWizard() {
       )}
 
       {/* Back button for choice steps */}
-      {step.type === "choice" && currentStep > 0 && (
+      {step.type === "choice" && visibleIdx > 0 && (
         <button
           onClick={handleBack}
           className="flex items-center gap-1 text-white/40 hover:text-white text-sm transition-colors"
